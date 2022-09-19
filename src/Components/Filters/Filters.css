@@ -1,0 +1,17 @@
+.filter-list{
+  display: flex;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.filter-list > li{
+  list-style: none;
+}
+
+.filter-list > li:active{
+  color: hsl(220, 98%, 61%);
+}
+
+.filter-list > li:hover{
+  color: hsl(235, 19%, 35%);
+}

@@ -1,0 +1,42 @@
+.border-wrap{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: hsl(236, 33%, 92%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.todo-icon{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.border-wrap__dark{
+  background-color: hsl(237, 14%, 26%);
+}
+
+.border-wrap__dark > .todo-icon{
+  background-color: hsl(235, 24%, 19%);
+}
+
+.border-wrap:active,
+.border-wrap:hover{
+  background-image: linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.border-wrap > .completed-todo{ /*more detailed quesry to keep the same prio level*/
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.completed-border-wrap {
+  background-image: linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  border: 0px;
+}

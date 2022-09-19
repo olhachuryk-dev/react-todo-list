@@ -1,0 +1,13 @@
+footer{
+  color:  hsl(233, 11%, 84%);
+  padding: 2rem 0;
+  width: 100%;
+}
+footer > p {
+  text-align: center;
+}
+footer > article {
+  font-size: small;
+  padding-top: 2rem;
+  text-align: center;
+}

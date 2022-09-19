@@ -1,0 +1,9 @@
+main {
+  width: 40%;
+  min-width: 365px;
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}

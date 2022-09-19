@@ -1,0 +1,9 @@
+.card-light{
+  background-color: white;
+  border-radius: 7px;
+}
+
+.card-dark {
+  background-color: hsl(235, 24%, 19%);
+  border-radius: 7px;
+}
