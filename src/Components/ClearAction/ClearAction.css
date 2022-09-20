@@ -1,5 +1,16 @@
-.clear-completed:hover{
-  background-image: linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+.clear-completed {
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+  font: inherit;
+  color: inherit;
+}
+.clear-completed:hover {
+  background-image: linear-gradient(
+    to right bottom,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
   background-clip: text;
   color: transparent;
 }

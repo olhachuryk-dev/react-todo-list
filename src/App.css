@@ -3,13 +3,12 @@
   flex-direction: column;
   align-items: center;
   background-color: hsl(0, 0%, 98%);
-  min-width: 100vw;
-  width: max-content;
+  min-width: 100%;
   min-height: 100vh;
   background-image: url("../public/images/bg-desktop-light.jpg");
   background-repeat: no-repeat;
   background-position: top center;
-  /* background-size: cover auto; */
+  background-size: max(100%, 885px) auto;
 }
 
 .dark-mode {

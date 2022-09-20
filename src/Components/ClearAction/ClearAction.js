@@ -1,8 +1,15 @@
 import React from "react";
-import './ClearAction.css'
+import "./ClearAction.css";
 
 function ClearAction(props) {
-  return <div className="clear-completed__wrapper" ><p className="clear-completed">Clear Completed</p></div>;
+  const deleteCompleted = () => {
+    props.callDeleteCompletedTodo();
+  };
+  return (
+    <button className="clear-completed" onClick={deleteCompleted}>
+      Clear Completed
+    </button>
+  );
 }
 
 export default ClearAction;

@@ -6,3 +6,32 @@
   padding: 0;
   font-family: "Josefin Sans", sans-serif;
 }
+body::-webkit-scrollbar {
+  width: 10px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: hsl(0, 0%, 98%);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: inherit;
+  background-image: linear-gradient(
+    to bottom,
+    hsla(192, 100%, 67%, 0.5),
+    hsla(280, 87%, 65%, 0.5)
+  );
+  border-radius: 20px;
+  border: 0;
+}
+
+body:has(.dark-mode)::-webkit-scrollbar-track {
+  background-color: hsl(235, 21%, 11%);
+}
+body:has(.dark-mode)::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(
+    to top,
+    hsla(192, 100%, 67%, 0.5),
+    hsla(280, 87%, 65%, 0.5)
+  );
+}

@@ -6,12 +6,15 @@
 
 .filter-list > li{
   list-style: none;
+  cursor: pointer;
 }
 
-.filter-list > li:active{
-  color: hsl(220, 98%, 61%);
-}
 
 .filter-list > li:hover{
   color: hsl(235, 19%, 35%);
+}
+
+
+.filter-list > li.highlight{
+  color: hsl(220, 98%, 61%);
 }

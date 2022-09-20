@@ -1,5 +1,5 @@
 footer{
-  color:  hsl(233, 11%, 84%);
+  color:  hsla(240, 3%, 58%, 0.621);
   padding: 2rem 0;
   width: 100%;
 }
@@ -10,4 +10,9 @@ footer > article {
   font-size: small;
   padding-top: 2rem;
   text-align: center;
+}
+
+footer a{
+  text-decoration: none;
+  color: hsla(258, 47%, 48%, 0.621);
 }
