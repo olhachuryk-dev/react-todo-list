@@ -31,3 +31,11 @@
 .todo-item:hover {
   z-index: 1;
 }
+
+@keyframes on-drag {}
+
+.todo-item__ondrag {
+  animation-name: on-drag;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+}

@@ -14,7 +14,7 @@ const DUMMY_TODO_ACTIONS = [
   "Complete Todo App",
 ];
 const generateTodoObj = (todoAction) => {
-  return { completed: false, key: Math.random(), action: todoAction };
+  return { completed: false, key: Math.random(), action: todoAction};
 };
 const DUMMY_TODO_LIST = DUMMY_TODO_ACTIONS.map((todoAction) => {
   return generateTodoObj(todoAction);

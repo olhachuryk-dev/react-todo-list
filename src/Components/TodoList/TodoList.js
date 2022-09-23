@@ -1,5 +1,6 @@
 import React from "react";
 import TodoItem from "../TodoItem/TodoItem";
+import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import "./TodoList.css";
 
 function TodoList(props) {
@@ -12,17 +13,30 @@ function TodoList(props) {
   }
 
   return (
-    <ul className={`todo-list ${!props.isLightMode && "todo-list__dark"}`}>
-      {props.todoList.map((todo) => (
-        <TodoItem
-          todo={todo}
-          key={todo.key}
-          isLightMode={props.isLightMode}
-          callUpdateTodoItemStatus={updateTodoItemStatus}
-          callRemoveTodoItem={removeTodoItem}
-        />
-      ))}
-    </ul>
+    //https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/
+    <DragDropContext>
+      <Droppable droppableId="todos">
+        {(provided) => (
+          <ul
+            className={`todo-list ${!props.isLightMode && "todo-list__dark"}`}
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+          >
+            {props.todoList.map((todo, index) => (
+              <TodoItem
+                todo={todo}
+                index={index}
+                key={todo.key}
+                isLightMode={props.isLightMode}
+                callUpdateTodoItemStatus={updateTodoItemStatus}
+                callRemoveTodoItem={removeTodoItem}
+              />
+            ))}
+            {provided.placeholder}
+          </ul>
+        )}
+      </Droppable>
+    </DragDropContext>
   );
 }
 

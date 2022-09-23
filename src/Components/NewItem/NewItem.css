@@ -21,8 +21,8 @@
 }
 
 .submit-btn__wrap {
-  width: 2rem;
-  height: 2rem;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: hsl(236, 33%, 92%);
   display: flex;
@@ -36,8 +36,8 @@
 }
 
 .submit-btn {
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background-color: white;
   display: flex;
@@ -63,7 +63,7 @@
 .submit-btn > label {
   background-clip: text;
   color: inherit;
-  font-size: 0.8rem;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
 }
