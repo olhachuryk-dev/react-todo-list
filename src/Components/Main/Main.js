@@ -94,24 +94,27 @@ function Main(props) {
   function applyFilterOnTodoList(isCompleted) {
     setFilteredTodoList(getFilteredTodoList(isCompleted));
   }
+
+  function reorderList(reorderedList) {
+    setTodoList(reorderedList);
+  }
+
   return (
     <main>
-      <Card isLightMode={props.isLightMode}>
+      <Card>
         <NewItem
-          isLightMode={props.isLightMode}
           callSubmitNewTodo={submitNewTodo}
         />
       </Card>
-      <Card isLightMode={props.isLightMode}>
+      <Card>
         <TodoList
           todoList={filteredTodoList.list}
-          isLightMode={props.isLightMode}
           callSaveNewItemStatus={saveNewItemStatus}
           callClearTodoItem={clearTodoItem}
+          callReorderList={reorderList}
         />
         <MainFooter
           todoList={todoList}
-          isLightMode={props.isLightMode}
           callDeleteCompletedAll={deleteCompletedAll}
           callFilterTodoList={applyFilterOnTodoList}
         />

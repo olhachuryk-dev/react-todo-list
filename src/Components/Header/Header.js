@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../../App";
 import "./Header.css";
 
 function Header(props) {
+  const isLightMode = useContext(ThemeContext);
   const changeLightMode = () => {
     props.changeLightMode();
   };
-  const lightModeIcon = props.isLightMode ? "icon-moon.svg" : "icon-sun.svg";
+  const lightModeIcon = isLightMode ? "icon-moon.svg" : "icon-sun.svg";
   return (
     <header>
       <label>T O D O</label>

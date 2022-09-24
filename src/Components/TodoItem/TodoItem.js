@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../../App";
 import { Draggable } from "@hello-pangea/dnd";
 import CompleteTodo from "../CompleteTodo/CompleteTodo";
 import "./TodoItem.css";
 
 function TodoItem(props) {
-  const { todo, index, isLightMode } = props;
+  const { todo, index } = props;
   const action = todo.completed ? <s>{todo.action}</s> : todo.action;
+  const isLightMode = useContext(ThemeContext);
+
   function updateTodoStatus(newStatus) {
     props.callUpdateTodoItemStatus(newStatus, todo.key);
   }
@@ -25,7 +28,6 @@ function TodoItem(props) {
         >
           <CompleteTodo
             completed={todo.completed}
-            isLightMode={isLightMode}
             callUpdateTodoStatus={updateTodoStatus}
           />
           <p>{action}</p>

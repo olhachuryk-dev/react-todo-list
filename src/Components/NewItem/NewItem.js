@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../../App";
 import "./NewItem.css";
 
 function NewItem(props) {
+  const isLightMode = useContext(ThemeContext);
   const addNewTodoAction = () => {
     const actionValue = document.querySelector(".new-todo__input").value;
     props.callSubmitNewTodo(actionValue.trim());
@@ -11,12 +13,12 @@ function NewItem(props) {
     <div className="new-todo__container">
       <div
         className={`submit-btn__wrap ${
-          !props.isLightMode && "submit-btn__wrap__dark"
+          !isLightMode && "submit-btn__wrap__dark"
         }`}
         onClick={addNewTodoAction}
       >
         <div
-          className={`submit-btn ${!props.isLightMode && "submit-btn__dark"}`}
+          className={`submit-btn ${!isLightMode && "submit-btn__dark"}`}
         >
           <label>add</label>
         </div>

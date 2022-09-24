@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../../App";
 import "./CompleteTodo.css";
 
 function CompleteTodo(props) {
+  const isLightMode = useContext(ThemeContext);
   const checkMark = props.completed && (
     <img src="/images/icon-check.svg" alt="Completed" />
   );
@@ -10,7 +12,7 @@ function CompleteTodo(props) {
   };
   return (
     <div
-      className={`border-wrap ${!props.isLightMode && "border-wrap__dark"} ${
+      className={`border-wrap ${!isLightMode && "border-wrap__dark"} ${
         props.completed && "completed-border-wrap"
       }`}
       onClick={toggleTodoStatus}

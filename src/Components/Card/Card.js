@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../../App";
 import "./Card.css";
 
 function Card(props) {
+  const isLightMode = useContext(ThemeContext);
   return (
-    <div className={props.isLightMode ? "card-light" : "card-dark"}>
+    <div className={isLightMode ? "card-light" : "card-dark"}>
       {props.children}
     </div>
   );
