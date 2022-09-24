@@ -5,19 +5,25 @@ import Main from "./Components/Main/Main";
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
 
+export const ThemeContext = React.createContext()
+
 function App() {
   const [isLightMode, setIsLightMode] = useState(true);
-  function toggleLightMode() {
+  function toggleTheme() {
     setIsLightMode((curMode) => {
       return !curMode;
     });
   }
   return (
+    <>
+    <ThemeContext.Provider value={isLightMode}>
     <div className={`app-container ${!isLightMode && "dark-mode"}`}>
-      <Header changeLightMode={toggleLightMode} isLightMode={isLightMode} />
-      <Main isLightMode={isLightMode} />
+      <Header changeLightMode={toggleTheme} />
+      <Main />
       <Footer />
     </div>
+    </ThemeContext.Provider>
+    </>
   );
 }
 
