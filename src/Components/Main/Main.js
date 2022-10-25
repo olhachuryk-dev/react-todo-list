@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Card from "../Card/Card";
 import MainFooter from "../MainFooter/MainFooter";
 import NewItem from "../NewItem/NewItem";
@@ -13,72 +13,32 @@ const DUMMY_TODO_ACTIONS = [
   "Pick up groceries",
   "Complete Todo App",
 ];
-const generateTodoObj = (todoAction) => {
-  return { completed: false, key: Math.random(), action: todoAction};
+export const generateTodoObj = (todoAction) => {
+  return { completed: false, key: Math.random(), action: todoAction };
 };
 const DUMMY_TODO_LIST = DUMMY_TODO_ACTIONS.map((todoAction) => {
   return generateTodoObj(todoAction);
 });
 
-function Main(props) {
+const TodoContext = React.createContext();
+
+export const useTodo = () => {
+  return useContext(TodoContext);
+};
+
+function Main() {
   const [todoList, setTodoList] = useState(DUMMY_TODO_LIST);
   const [filteredTodoList, setFilteredTodoList] = useState({
     list: todoList,
     is_completed: null,
   });
-  function submitNewTodo(todoAction) {
-    if (todoAction) {
-      setTodoList((existingTodoList) => {
-        const todoListWithNewItem = [
-          generateTodoObj(todoAction),
-          ...existingTodoList,
-        ];
-        setFilteredTodoList((prevFilter) =>
-          getFilteredTodoList(prevFilter.is_completed, todoListWithNewItem)
-        );
-        return todoListWithNewItem;
-      });
-    }
-    return;
-  }
 
-  function saveNewItemStatus(status, key) {
-    setTodoList((existingTodoList) => {
-      const updatedTodo = existingTodoList.map((existingTodoItem) => {
-        if (existingTodoItem.key === key) {
-          return { ...existingTodoItem, completed: status };
-        }
-        return existingTodoItem;
-      });
-      setFilteredTodoList((prevFilter) =>
-        getFilteredTodoList(prevFilter.is_completed, updatedTodo)
-      );
-      return updatedTodo;
-    });
-  }
-
-  function clearTodoItem(key) {
-    setTodoList((existingTodoList) => {
-      const cleanedTodo = existingTodoList.filter(
-        (existingTodoItem) => existingTodoItem.key !== key
-      );
-      setFilteredTodoList((prevFilter) =>
-        getFilteredTodoList(prevFilter.is_completed, cleanedTodo)
-      );
-      return cleanedTodo;
-    });
-  }
-  function deleteCompletedAll() {
-    setTodoList((existingTodoList) => {
-      const activeTodo = existingTodoList.filter(
-        (existingTodoItem) => !existingTodoItem.completed
-      );
-      setFilteredTodoList((prevFilter) =>
-        getFilteredTodoList(prevFilter.is_completed, activeTodo)
-      );
-      return activeTodo;
-    });
-  }
+  function updateTodo (newTodo) {
+    setTodoList(newTodo);
+    setFilteredTodoList((prevFilter) =>
+      getFilteredTodoList(prevFilter.is_completed, newTodo)
+    );
+  };
 
   function getFilteredTodoList(isCompleted, listToFilter = todoList) {
     if (isCompleted !== null) {
@@ -95,31 +55,27 @@ function Main(props) {
     setFilteredTodoList(getFilteredTodoList(isCompleted));
   }
 
-  function reorderList(reorderedList) {
-    setTodoList(reorderedList);
-  }
-
   return (
-    <main>
-      <Card>
-        <NewItem
-          callSubmitNewTodo={submitNewTodo}
-        />
-      </Card>
-      <Card>
-        <TodoList
-          todoList={filteredTodoList.list}
-          callSaveNewItemStatus={saveNewItemStatus}
-          callClearTodoItem={clearTodoItem}
-          callReorderList={reorderList}
-        />
-        <MainFooter
-          todoList={todoList}
-          callDeleteCompletedAll={deleteCompletedAll}
-          callFilterTodoList={applyFilterOnTodoList}
-        />
-      </Card>
-    </main>
+    <TodoContext.Provider value={todoList}>
+      <main>
+        <Card>
+          <NewItem callUpdateTodo={updateTodo} />
+        </Card>
+        <Card>
+          <TodoList
+            filteredTodoList={filteredTodoList.list}
+            callUpdateTodo={updateTodo}
+            callReorderList={(reorderedList) => setFilteredTodoList((prevFilter) =>
+              getFilteredTodoList(prevFilter.is_completed, reorderedList)
+            )}
+          />
+          <MainFooter
+            callUpdateTodo={updateTodo}
+            callFilterTodoList={applyFilterOnTodoList}
+          />
+        </Card>
+      </main>
+    </TodoContext.Provider>
   );
 }
 

@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "../../App";
+import React from "react";
+import { useTheme, useThemeUpdate } from "../ThemeContext/ThemeContext";
 import "./Header.css";
 
 function Header(props) {
-  const isLightMode = useContext(ThemeContext);
-  const changeLightMode = () => {
-    props.changeLightMode();
-  };
+  const isLightMode = useTheme();
+  const toggleTheme = useThemeUpdate();
   const lightModeIcon = isLightMode ? "icon-moon.svg" : "icon-sun.svg";
   return (
     <header>
@@ -14,7 +12,7 @@ function Header(props) {
       <img
         src={`/images/${lightModeIcon}`}
         alt="light-mode"
-        onClick={changeLightMode}
+        onClick={toggleTheme}
       />
     </header>
   );

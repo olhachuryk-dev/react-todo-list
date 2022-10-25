@@ -1,12 +1,17 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "../../App";
+import React from "react";
+import { useTheme } from "../ThemeContext/ThemeContext";
+import { useTodo, generateTodoObj } from "../Main/Main";
 import "./NewItem.css";
 
 function NewItem(props) {
-  const isLightMode = useContext(ThemeContext);
+  const isLightMode = useTheme();
+  const todoList = useTodo();
   const addNewTodoAction = () => {
-    const actionValue = document.querySelector(".new-todo__input").value;
-    props.callSubmitNewTodo(actionValue.trim());
+    const todoAction = document.querySelector(".new-todo__input").value.trim();
+    if (todoAction) {
+      const todoListWithNewItem = [generateTodoObj(todoAction), ...todoList];
+      props.callUpdateTodo(todoListWithNewItem);
+    }
     document.querySelector(".new-todo__input").value = "";
   };
   return (
@@ -17,9 +22,7 @@ function NewItem(props) {
         }`}
         onClick={addNewTodoAction}
       >
-        <div
-          className={`submit-btn ${!isLightMode && "submit-btn__dark"}`}
-        >
+        <div className={`submit-btn ${!isLightMode && "submit-btn__dark"}`}>
           <label>add</label>
         </div>
       </div>

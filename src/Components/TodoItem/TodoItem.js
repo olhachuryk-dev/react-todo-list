@@ -1,19 +1,30 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "../../App";
+import React from "react";
+import { useTheme } from "../ThemeContext/ThemeContext";
 import { Draggable } from "@hello-pangea/dnd";
+import { useTodo } from "../Main/Main";
 import CompleteTodo from "../CompleteTodo/CompleteTodo";
 import "./TodoItem.css";
 
 function TodoItem(props) {
+  const todoList = useTodo();
   const { todo, index } = props;
   const action = todo.completed ? <s>{todo.action}</s> : todo.action;
-  const isLightMode = useContext(ThemeContext);
+  const isLightMode = useTheme();
 
-  function updateTodoStatus(newStatus) {
-    props.callUpdateTodoItemStatus(newStatus, todo.key);
+  function updateTodoStatus(status) {
+    const updated = todoList.map((existingTodoItem) => {
+      if (existingTodoItem.key === todo.key) {
+        return { ...existingTodoItem, completed: status };
+      }
+      return existingTodoItem;
+    });
+    return props.callUpdateTodoItems(updated);
   }
   const deleteTodoItem = () => {
-    props.callRemoveTodoItem(todo.key);
+    const cleanedTodo = todoList.filter(
+      (existingTodoItem) => existingTodoItem.key !== todo.key
+    );
+    return props.callUpdateTodoItems(cleanedTodo);
   };
 
   return (

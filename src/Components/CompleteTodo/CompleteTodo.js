@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "../../App";
+import React from "react";
+import { useTheme } from "../ThemeContext/ThemeContext";
 import "./CompleteTodo.css";
 
 function CompleteTodo(props) {
-  const isLightMode = useContext(ThemeContext);
+  const isLightMode = useTheme();
   const checkMark = props.completed && (
     <img src="/images/icon-check.svg" alt="Completed" />
   );

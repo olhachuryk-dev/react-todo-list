@@ -1,29 +1,24 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "../../App";
+import React from "react";
+import { useTheme } from "../ThemeContext/ThemeContext";
 import TodoItem from "../TodoItem/TodoItem";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import "./TodoList.css";
 
 function TodoList(props) {
-  const isLightMode = useContext(ThemeContext);
-
-  function updateTodoItemStatus(status, key) {
-    props.callSaveNewItemStatus(status, key);
-  }
-
-  function removeTodoItem(key) {
-    props.callClearTodoItem(key);
+  const isLightMode = useTheme();
+  function updateTodoItems(updated) {
+    props.callUpdateTodo(updated);
   }
 
   const handleOnDragEnd = (result) => {
     if(!result.destination) return; //to avoid errors when dropping outside our dropzone
-    const reorderedItem = props.todoList.splice(result.source.index, 1);
-    props.todoList.splice(
+    const reorderedItem = props.filteredTodoList.splice(result.source.index, 1);
+    props.filteredTodoList.splice(
       result.destination.index,
       0,
       ...reorderedItem
     );
-    props.callReorderList(props.todoList);
+    props.callReorderList(props.filteredTodoList);
   };
 
   return (
@@ -36,13 +31,12 @@ function TodoList(props) {
             {...provided.droppableProps}
             ref={provided.innerRef}
           >
-            {props.todoList.map((todo, index) => (
+            {props.filteredTodoList.map((todo, index) => (
               <TodoItem
                 todo={todo}
                 index={index}
                 key={todo.key}
-                callUpdateTodoItemStatus={updateTodoItemStatus}
-                callRemoveTodoItem={removeTodoItem}
+                callUpdateTodoItems={updateTodoItems}
               />
             ))}
             {provided.placeholder}
