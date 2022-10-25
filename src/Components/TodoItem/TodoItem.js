@@ -44,7 +44,7 @@ function TodoItem(props) {
           <p>{action}</p>
           <img
             alt="delete"
-            src="/images/icon-cross.svg"
+            src="images/icon-cross.svg"
             className="todo-delete"
             onClick={deleteTodoItem}
           />

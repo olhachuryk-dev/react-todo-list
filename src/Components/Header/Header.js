@@ -10,7 +10,7 @@ function Header(props) {
     <header>
       <label>T O D O</label>
       <img
-        src={`/images/${lightModeIcon}`}
+        src={`images/${lightModeIcon}`}
         alt="light-mode"
         onClick={toggleTheme}
       />
