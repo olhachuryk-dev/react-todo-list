@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-todo-list/static/css/main.492a1096.css",
+    "main.js": "/react-todo-list/static/js/main.3d33123d.js",
+    "static/media/bg-desktop-light.jpg": "/react-todo-list/static/media/bg-desktop-light.3508d620efd5a52bb4ce.jpg",
+    "static/media/bg-desktop-dark.jpg": "/react-todo-list/static/media/bg-desktop-dark.73e47dbb723ebc772ef0.jpg",
+    "index.html": "/react-todo-list/index.html",
+    "main.492a1096.css.map": "/react-todo-list/static/css/main.492a1096.css.map",
+    "main.3d33123d.js.map": "/react-todo-list/static/js/main.3d33123d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.492a1096.css",
+    "static/js/main.3d33123d.js"
+  ]
+}
