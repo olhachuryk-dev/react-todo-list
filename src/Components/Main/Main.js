@@ -1,24 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import Card from "../Card/Card";
 import MainFooter from "../MainFooter/MainFooter";
 import NewItem from "../NewItem/NewItem";
 import TodoList from "../TodoList/TodoList";
+import useHttp from "../../hooks/use-http";
 import "./Main.css";
+import Loading from "../../UI/Loading";
 
-const DUMMY_TODO_ACTIONS = [
-  "Complete online JS course",
-  "Jog around the park 3x",
-  "10 minutes meditation",
-  "Read for 1 hour",
-  "Pick up groceries",
-  "Complete Todo App",
-];
-export const generateTodoObj = (todoAction) => {
-  return { completed: false, key: Math.random(), action: todoAction };
+export const generateTodoObj = (todoAction, index, id) => {
+  return { completed: false, key: id, action: todoAction, order: index };
 };
-const DUMMY_TODO_LIST = DUMMY_TODO_ACTIONS.map((todoAction) => {
-  return generateTodoObj(todoAction);
-});
 
 const TodoContext = React.createContext();
 
@@ -27,18 +18,55 @@ export const useTodo = () => {
 };
 
 function Main() {
-  const [todoList, setTodoList] = useState(DUMMY_TODO_LIST);
+  const [todoList, setTodoList] = useState([]);
   const [filteredTodoList, setFilteredTodoList] = useState({
-    list: todoList,
+    list: [],
     is_completed: null,
   });
+  const { sendRequest, error, isLoading } = useHttp();
+  const transformTodo = useCallback((todoData) => {
+    setTodoList(todoData);
+    setFilteredTodoList((prevFilter) => {
+      return {
+        list: todoData,
+        is_completed: prevFilter ? prevFilter.is_completed : null,
+      };
+    });
+  }, []);
 
-  function updateTodo (newTodo) {
-    setTodoList(newTodo);
-    setFilteredTodoList((prevFilter) =>
-      getFilteredTodoList(prevFilter.is_completed, newTodo)
-    );
-  };
+  useEffect(() => {
+    sendRequest(transformTodo, "", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: null,
+    });
+  }, [sendRequest, transformTodo]);
+
+  function updateTodo(updatedItem) {
+    const updateListStates = () => {
+      const result = todoList.map((existingTodoItem) => {
+        if (existingTodoItem.key === updatedItem.key) {
+          return updatedItem;
+        }
+        return existingTodoItem;
+      });
+      transformTodo(result);
+    };
+    const requestInit = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: {
+        completed: updatedItem.completed,
+        order: updatedItem.order,
+      },
+    };
+    sendRequest(updateListStates, updatedItem.key, requestInit);
+  }
+
 
   function getFilteredTodoList(isCompleted, listToFilter = todoList) {
     if (isCompleted !== null) {
@@ -55,16 +83,16 @@ function Main() {
     setFilteredTodoList(getFilteredTodoList(isCompleted));
   }
 
-  return (
-    <TodoContext.Provider value={todoList}>
-      <main>
-        <Card>
-          <NewItem callUpdateTodo={updateTodo} />
-        </Card>
+  function displayList() {
+    if (isLoading) {
+      return <Loading />;
+    } else {
+      return (
         <Card>
           <TodoList
             filteredTodoList={filteredTodoList.list}
             callUpdateTodo={updateTodo}
+            callSetTodo={transformTodo}
             callReorderList={(reorderedList) => setFilteredTodoList((prevFilter) =>
               getFilteredTodoList(prevFilter.is_completed, reorderedList)
             )}
@@ -74,7 +102,22 @@ function Main() {
             callFilterTodoList={applyFilterOnTodoList}
           />
         </Card>
-      </main>
+      );
+    }
+  }
+
+  return (
+    <TodoContext.Provider value={todoList}>
+      {error ? (
+        <p style={{ color: "red", textAlign: "center" }}>{error}</p>
+      ) : (
+        <main>
+          <Card>
+            <NewItem callSetTodo={transformTodo} />
+          </Card>
+          {displayList()}
+        </main>
+      )}
     </TodoContext.Provider>
   );
 }

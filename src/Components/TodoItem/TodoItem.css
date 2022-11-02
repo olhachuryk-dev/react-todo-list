@@ -17,6 +17,7 @@
   width: 80%;
   color: hsl(235, 19%, 35%);
   cursor: pointer;
+  overflow-wrap: break-word;
 }
 
 .todo-item__dark > p {

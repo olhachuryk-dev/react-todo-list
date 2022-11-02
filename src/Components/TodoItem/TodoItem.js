@@ -3,6 +3,7 @@ import { useTheme } from "../ThemeContext/ThemeContext";
 import { Draggable } from "@hello-pangea/dnd";
 import { useTodo } from "../Main/Main";
 import CompleteTodo from "../CompleteTodo/CompleteTodo";
+import useHttp from "../../hooks/use-http";
 import "./TodoItem.css";
 
 function TodoItem(props) {
@@ -10,21 +11,22 @@ function TodoItem(props) {
   const { todo, index } = props;
   const action = todo.completed ? <s>{todo.action}</s> : todo.action;
   const isLightMode = useTheme();
+  const { sendRequest } = useHttp();
 
   function updateTodoStatus(status) {
-    const updated = todoList.map((existingTodoItem) => {
-      if (existingTodoItem.key === todo.key) {
-        return { ...existingTodoItem, completed: status };
-      }
-      return existingTodoItem;
-    });
-    return props.callUpdateTodoItems(updated);
+    return props.callUpdateTodoItems({...todo, completed: status});
   }
   const deleteTodoItem = () => {
     const cleanedTodo = todoList.filter(
       (existingTodoItem) => existingTodoItem.key !== todo.key
     );
-    return props.callUpdateTodoItems(cleanedTodo);
+    sendRequest(
+      props.callSetTodo(cleanedTodo),
+      todo.key,
+      {
+        method: "DELETE"
+      }
+    )
   };
 
   return (
@@ -44,7 +46,7 @@ function TodoItem(props) {
           <p>{action}</p>
           <img
             alt="delete"
-            src="images/icon-cross.svg"
+            src="/images/icon-cross.svg"
             className="todo-delete"
             onClick={deleteTodoItem}
           />

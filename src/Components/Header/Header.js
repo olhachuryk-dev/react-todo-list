@@ -2,13 +2,13 @@ import React from "react";
 import { useTheme, useThemeUpdate } from "../ThemeContext/ThemeContext";
 import "./Header.css";
 
-function Header(props) {
+function Header() {
   const isLightMode = useTheme();
   const toggleTheme = useThemeUpdate();
   const lightModeIcon = isLightMode ? "icon-moon.svg" : "icon-sun.svg";
   return (
     <header>
-      <label>T O D O</label>
+      <h1>T O D O</h1>
       <img
         src={`images/${lightModeIcon}`}
         alt="light-mode"

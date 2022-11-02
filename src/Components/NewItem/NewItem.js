@@ -1,26 +1,52 @@
 import React from "react";
 import { useTheme } from "../ThemeContext/ThemeContext";
 import { useTodo, generateTodoObj } from "../Main/Main";
+import useHttp from "../../hooks/use-http";
 import "./NewItem.css";
 
 function NewItem(props) {
   const isLightMode = useTheme();
   const todoList = useTodo();
-  const addNewTodoAction = () => {
+  const { sendRequest } = useHttp();
+
+  function addTodo() {
+    const listItem = addNewTodoAction();
+    sendRequest(
+      (todoItemKey)=>props.callSetTodo([
+        {
+          ...listItem,
+          key: todoItemKey,
+        },
+        ...todoList,
+      ]),
+      "",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: listItem,
+      }
+    );
+    document.querySelector(".new-todo__input").value = "";
+  }
+
+  function addNewTodoAction() {
     const todoAction = document.querySelector(".new-todo__input").value.trim();
     if (todoAction) {
-      const todoListWithNewItem = [generateTodoObj(todoAction), ...todoList];
-      props.callUpdateTodo(todoListWithNewItem);
+      const todoNewItem = generateTodoObj(todoAction, todoList.length);
+      return todoNewItem;
     }
-    document.querySelector(".new-todo__input").value = "";
-  };
+    return;
+  }
+
   return (
     <div className="new-todo__container">
       <div
         className={`submit-btn__wrap ${
           !isLightMode && "submit-btn__wrap__dark"
         }`}
-        onClick={addNewTodoAction}
+        onClick={addTodo}
       >
         <div className={`submit-btn ${!isLightMode && "submit-btn__dark"}`}>
           <label>add</label>
@@ -33,7 +59,7 @@ function NewItem(props) {
         placeholder="Start typing here"
         onKeyPress={(event) => {
           if (event.key === "Enter") {
-            addNewTodoAction();
+            addTodo();
           }
         }}
       ></input>
