@@ -1,34 +1,25 @@
 import React from "react";
 import { useTheme } from "../ThemeContext/ThemeContext";
+import { useTodo } from "../Main/Main";
 import TodoItem from "../TodoItem/TodoItem";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import useHttp from "../../hooks/use-http";
 import "./TodoList.css";
 
 function TodoList(props) {
+  const todoList = useTodo();
   const isLightMode = useTheme();
   const { sendRequest } = useHttp();
-  function updateTodoItems(updated) {
-    props.callUpdateTodo(updated);
-  }
 
-  // const handleOnDragEnd1 = (result) => {
-  //   if (!result.destination) return; //to avoid errors when dropping outside our dropzone
-  //   const reorderedItem = props.filteredTodoList.splice(result.source.index, 1);
-  //   props.filteredTodoList.splice(
-  //     result.destination.index,
-  //     0,
-  //     ...reorderedItem
-  //   );
-  //   props.callReorderList(props.filteredTodoList);
-  // };
   const handleOnDragEnd = (result) => {
     if (!result.destination) return; //to avoid errors when dropping outside our dropzone
     const newIndex = result.destination.index;
     const prevIndex = newIndex - 1;
     const nextIndex = newIndex + 1;
     const reorderedItem = props.filteredTodoList.splice(result.source.index, 1);
+
     props.filteredTodoList.splice(newIndex, 0, ...reorderedItem);
+
     const newOrder = () => {
       if (nextIndex === props.filteredTodoList.length) {
         return props.filteredTodoList[prevIndex].order + 1;
@@ -45,6 +36,19 @@ function TodoList(props) {
       }
     };
     reorderedItem[0].order = newOrder();
+
+    props.callSetTodo(
+      todoList
+        .map((e) => {
+          if (e.key === reorderedItem[0].key) {
+            return {
+              ...e,
+              order: reorderedItem[0].order,
+            };
+          } else return e;
+        })
+        .sort((a, b) => a.order - b.order)
+    );
     const requestInit = {
       method: "PATCH",
       headers: {
@@ -54,16 +58,7 @@ function TodoList(props) {
         order: reorderedItem[0].order,
       },
     };
-    sendRequest(() => props.callReorderList(
-      props.filteredTodoList.map((e) => {
-        if (e.key === reorderedItem[0].key) {
-          return {
-            ...e,
-            order: newOrder(),
-          };
-        } else return e;
-      })
-    ), reorderedItem[0].key, requestInit);
+    sendRequest(() => {}, reorderedItem[0].key, requestInit);
   };
 
   return (
@@ -82,7 +77,7 @@ function TodoList(props) {
                 todo={todo}
                 index={index}
                 key={todo.key}
-                callUpdateTodoItems={updateTodoItems}
+                callUpdateTodoItems={props.callUpdateTodo}
               />
             ))}
             {provided.placeholder}

@@ -19,20 +19,9 @@ export const useTodo = () => {
 
 function Main() {
   const [todoList, setTodoList] = useState([]);
-  const [filteredTodoList, setFilteredTodoList] = useState({
-    list: [],
-    is_completed: null,
-  });
+  const [isCompletedFilter, setIsCompletedFilter] = useState(null);
   const { sendRequest, error, isLoading } = useHttp();
-  const transformTodo = useCallback((todoData) => {
-    setTodoList(todoData);
-    setFilteredTodoList((prevFilter) => {
-      return {
-        list: todoData,
-        is_completed: prevFilter ? prevFilter.is_completed : null,
-      };
-    });
-  }, []);
+  const transformTodo = useCallback((todoData) => setTodoList(todoData), []);
 
   useEffect(() => {
     sendRequest(transformTodo, "", {
@@ -52,7 +41,7 @@ function Main() {
         }
         return existingTodoItem;
       });
-      transformTodo(result);
+      setTodoList(result);
     };
     const requestInit = {
       method: "PATCH",
@@ -67,22 +56,6 @@ function Main() {
     sendRequest(updateListStates, updatedItem.key, requestInit);
   }
 
-
-  function getFilteredTodoList(isCompleted, listToFilter = todoList) {
-    if (isCompleted !== null) {
-      const filteredList = listToFilter.filter(
-        (todoItem) => todoItem["completed"] === isCompleted
-      );
-      return { list: filteredList, is_completed: isCompleted };
-    } else {
-      return { list: listToFilter, is_completed: null };
-    }
-  }
-
-  function applyFilterOnTodoList(isCompleted) {
-    setFilteredTodoList(getFilteredTodoList(isCompleted));
-  }
-
   function displayList() {
     if (isLoading) {
       return <Loading />;
@@ -90,16 +63,18 @@ function Main() {
       return (
         <Card>
           <TodoList
-            filteredTodoList={filteredTodoList.list}
             callUpdateTodo={updateTodo}
-            callSetTodo={transformTodo}
-            callReorderList={(reorderedList) => setFilteredTodoList((prevFilter) =>
-              getFilteredTodoList(prevFilter.is_completed, reorderedList)
-            )}
+            callSetTodo={setTodoList}
+            filteredTodoList={todoList.filter((todoItem) => {
+              if (isCompletedFilter === null) return true;
+              else return todoItem["completed"] === isCompletedFilter;
+            })}
           />
           <MainFooter
             callUpdateTodo={updateTodo}
-            callFilterTodoList={applyFilterOnTodoList}
+            callFilterTodoList={(isCompleted) =>
+              setIsCompletedFilter(isCompleted)
+            }
           />
         </Card>
       );
@@ -113,7 +88,7 @@ function Main() {
       ) : (
         <main>
           <Card>
-            <NewItem callSetTodo={transformTodo} />
+            <NewItem callSetTodo={setTodoList} />
           </Card>
           {displayList()}
         </main>

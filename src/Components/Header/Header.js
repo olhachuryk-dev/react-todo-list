@@ -10,7 +10,7 @@ function Header() {
     <header>
       <h1>T O D O</h1>
       <img
-        src={`images/${lightModeIcon}`}
+        src={`./images/${lightModeIcon}`}
         alt="light-mode"
         onClick={toggleTheme}
       />
