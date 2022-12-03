@@ -8,7 +8,7 @@
   background-image: url("../public/images/bg-desktop-light.jpg");
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: max(100%, 885px) auto;
+  background-size: max(100%, 885px) min(100%, 250px);
 }
 
 .dark-mode {

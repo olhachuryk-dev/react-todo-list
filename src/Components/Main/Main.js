@@ -1,60 +1,32 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useMemo, useState } from "react";
+import { TodoContext } from "../../Context/todoContext";
 import Card from "../Card/Card";
 import MainFooter from "../MainFooter/MainFooter";
 import NewItem from "../NewItem/NewItem";
 import TodoList from "../TodoList/TodoList";
-import useHttp from "../../hooks/use-http";
-import "./Main.css";
 import Loading from "../../UI/Loading";
+import "./Main.css";
+import useTodoFetch from "../../hooks/use-todo-fetch";
 
 export const generateTodoObj = (todoAction, index, id) => {
   return { completed: false, key: id, action: todoAction, order: index };
 };
 
-const TodoContext = React.createContext();
-
-export const useTodo = () => {
-  return useContext(TodoContext);
-};
-
 function Main() {
-  const [todoList, setTodoList] = useState([]);
+  const { requestResult, useTodoList, updateTodo } = useTodoFetch();
+  const { error, isLoading } = requestResult;
+  const { todoList, setTodoList } = useTodoList;
+
   const [isCompletedFilter, setIsCompletedFilter] = useState(null);
-  const { sendRequest, error, isLoading } = useHttp();
-  const transformTodo = useCallback((todoData) => setTodoList(todoData), []);
 
-  useEffect(() => {
-    sendRequest(transformTodo, "", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: null,
-    });
-  }, [sendRequest, transformTodo]);
-
-  function updateTodo(updatedItem) {
-    const updateListStates = () => {
-      const result = todoList.map((existingTodoItem) => {
-        if (existingTodoItem.key === updatedItem.key) {
-          return updatedItem;
-        }
-        return existingTodoItem;
-      });
-      setTodoList(result);
-    };
-    const requestInit = {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: {
-        completed: updatedItem.completed,
-        order: updatedItem.order,
-      },
-    };
-    sendRequest(updateListStates, updatedItem.key, requestInit);
-  }
+  const filteredTodoList = useMemo(
+    () =>
+      todoList.filter((todoItem) => {
+        if (isCompletedFilter === null) return true;
+        else return todoItem["completed"] === isCompletedFilter;
+      }),
+    [todoList, isCompletedFilter]
+  );
 
   function displayList() {
     if (isLoading) {
@@ -65,10 +37,7 @@ function Main() {
           <TodoList
             callUpdateTodo={updateTodo}
             callSetTodo={setTodoList}
-            filteredTodoList={todoList.filter((todoItem) => {
-              if (isCompletedFilter === null) return true;
-              else return todoItem["completed"] === isCompletedFilter;
-            })}
+            filteredTodoList={filteredTodoList}
           />
           <MainFooter
             callUpdateTodo={updateTodo}
@@ -82,18 +51,21 @@ function Main() {
   }
 
   return (
-    <TodoContext.Provider value={todoList}>
-      {error ? (
-        <p style={{ color: "red", textAlign: "center" }}>{error}</p>
-      ) : (
-        <main>
-          <Card>
-            <NewItem callSetTodo={setTodoList} />
-          </Card>
-          {displayList()}
-        </main>
-      )}
-    </TodoContext.Provider>
+    <>
+      <TodoContext.Provider value={todoList}>
+        {error ? (
+          <p style={{ color: "red", textAlign: "center" }}>{error}</p>
+        ) : (
+          <main>
+            <Card>
+              <NewItem callSetTodo={setTodoList} />
+            </Card>
+            {displayList()}
+          </main>
+        )}
+      </TodoContext.Provider>
+      <p className="list-instructions"> Drag and drop to reorder list </p>
+    </>
   );
 }
 

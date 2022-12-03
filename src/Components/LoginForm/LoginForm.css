@@ -1,0 +1,137 @@
+
+.login-error {
+  background-color: rgba(205, 92, 92, 0.5);
+  color: rgb(156, 13, 13);
+  padding: 1rem;
+  width: 100%;
+}
+
+.login-error__dark{
+  color: indianred;
+}
+
+.password-reset_message{
+  background-color: rgba(172, 255, 47, 0.5);
+  color:green;
+  padding: 1rem;
+  width: 100%;
+}
+
+.password-reset_message__dark{
+  color: rgba(172, 255, 47);
+}
+
+.login-form {
+  border-radius: inherit;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-width: 365px;
+  width: 40%;
+  padding: 3rem;
+}
+
+@media (max-width: 375px) {
+  .login-form {
+    width: 90vw;
+    min-width: fit-content;
+    padding: 3rem 1rem;
+  }
+}
+
+.login-heading {
+  font-size: 2.2rem;
+  text-align: center;
+  padding-top: 2rem;
+  font-weight: 700;
+  color: hsl(280, 87%, 65%, 0.5);
+}
+
+.field_container {
+  background-image: linear-gradient(
+    to right bottom,
+    hsla(192, 100%, 67%, 0.5),
+    hsla(280, 87%, 65%, 0.5)
+  );
+  height: 3rem;
+  border-radius: inherit;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.login-input {
+  width: calc(100% - 3px);
+  border: 0;
+  border-radius: inherit;
+  height: calc(3rem - 3px);
+  font-size: 1rem;
+  background-color: white;
+  caret-color: hsl(280, 87%, 65%);
+  outline: none;
+  resize: none;
+  color: hsl(235, 19%, 35%);
+  padding: 0 5px;
+}
+
+.field_container > label {
+  display: none;
+}
+
+.login-btn {
+  border-radius: inherit;
+  border: 0;
+  height: calc(3rem - 3px);
+  width: calc(100% - 3px);
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  background-color: white;
+  background-image: linear-gradient(
+    to right bottom,
+    hsla(192, 100%, 67%, 0.5),
+    hsla(280, 87%, 65%, 0.5)
+  );
+}
+
+.field_container__dark > * {
+  background-color: hsl(235, 24%, 19%);
+}
+
+.login-instructions {
+  text-align: center;
+  width: 100%;
+  color:  hsla(240, 3%, 58%, 0.621);
+  padding-top: 2rem;
+}
+
+.forgot-password__link {
+  text-align: center;
+  width: 100%;
+  padding-bottom: 1rem;
+  display: block;
+  text-decoration: none;
+  color: cornflowerblue;
+}
+
+.forgot-password__link:hover{
+  text-decoration: underline;
+}
+
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+.field_container__dark > .login-btn {
+  color: hsl(235, 24%, 19%);
+}
+
+.field_container__dark > .login-input {
+  color: hsl(234, 11%, 52%);
+}

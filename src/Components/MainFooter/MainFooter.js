@@ -2,7 +2,7 @@ import React from "react";
 import ClearAction from "../ClearAction/ClearAction";
 import Filters from "../Filters/Filters";
 import ItemsCounter from "../ItemsCounter/ItemsCounter";
-import { useTodo } from "../Main/Main";
+import { useTodo } from "../../Context/todoContext";
 import "./MainFooter.css";
 
 function MainFooter(props) {
@@ -11,7 +11,7 @@ function MainFooter(props) {
     return todo.completed === false;
   });
   function deleteCompletedTodo() {
-    props.callUpdateTodo(activeItems);
+    return
   }
   function filterByStatus(isCompleted) {
     props.callFilterTodoList(isCompleted);

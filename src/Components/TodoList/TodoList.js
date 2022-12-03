@@ -1,6 +1,6 @@
 import React from "react";
-import { useTheme } from "../ThemeContext/ThemeContext";
-import { useTodo } from "../Main/Main";
+import { useTheme } from "../../Context/themeContext";
+import { useTodo } from "../../Context/todoContext";
 import TodoItem from "../TodoItem/TodoItem";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import useHttp from "../../hooks/use-http";

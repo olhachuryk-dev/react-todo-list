@@ -1,11 +1,11 @@
 import React from "react";
-import { useTheme } from "../ThemeContext/ThemeContext";
+import { useTheme } from "../../Context/themeContext";
 import "./CompleteTodo.css";
 
 function CompleteTodo(props) {
   const isLightMode = useTheme();
   const checkMark = props.completed && (
-    <img src="/images/icon-check.svg" alt="Completed" />
+    <img src="./images/icon-check.svg" alt="Completed" />
   );
   const toggleTodoStatus = () => {
     props.callUpdateTodoStatus(!props.completed);
@@ -17,9 +17,9 @@ function CompleteTodo(props) {
       }`}
       onClick={toggleTodoStatus}
     >
-      <div className={`todo-icon ${props.completed && "completed-todo"}`}>
+      <button className={`todo-icon ${props.completed && "completed-todo"}`}>
         {checkMark}
-      </div>
+      </button>
     </div>
   );
 }

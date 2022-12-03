@@ -8,8 +8,27 @@ header {
   justify-content: space-between;
 }
 
-header > h1 {
+.menu-logo_container {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.menu-logo_container > h1 {
   font-size: 2.2rem;
   font-weight: 700;
   color: white;
+  margin-left: 1rem;
+}
+
+@media (max-width: 375px) {
+  header {
+    width: 90%;
+    min-width: auto;
+  }
+}
+@media (orientation: portrait) {
+  header {
+    margin-top: 1rem;
+  }
 }

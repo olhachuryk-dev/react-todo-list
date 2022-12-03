@@ -1,5 +1,6 @@
 import React from "react";
-import { useTheme, useThemeUpdate } from "../ThemeContext/ThemeContext";
+import { useTheme, useThemeUpdate } from "../../Context/themeContext";
+import Menu from "./Menu";
 import "./Header.css";
 
 function Header() {
@@ -8,7 +9,10 @@ function Header() {
   const lightModeIcon = isLightMode ? "icon-moon.svg" : "icon-sun.svg";
   return (
     <header>
-      <h1>T O D O</h1>
+      <div className="menu-logo_container">
+        <Menu/>
+        <h1>T O D O</h1>
+      </div>
       <img
         src={`./images/${lightModeIcon}`}
         alt="light-mode"

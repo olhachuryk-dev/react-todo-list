@@ -1,24 +1,28 @@
-import React from "react";
-import { useTheme } from "../ThemeContext/ThemeContext";
-import { useTodo, generateTodoObj } from "../Main/Main";
+import React, { useRef } from "react";
+import { useTheme } from "../../Context/themeContext";
+import { useTodo } from "../../Context/todoContext";
+import { generateTodoObj } from "../Main/Main";
 import useHttp from "../../hooks/use-http";
 import "./NewItem.css";
 
 function NewItem(props) {
   const isLightMode = useTheme();
+  const newTodoActinRef = useRef();
   const todoList = useTodo();
   const { sendRequest } = useHttp();
 
   function addTodo() {
     const listItem = addNewTodoAction();
+    if (!listItem) return;
     sendRequest(
-      (todoItemKey)=>props.callSetTodo([
-        {
-          ...listItem,
-          key: todoItemKey,
-        },
-        ...todoList,
-      ]),
+      (todoItemKey) =>
+        props.callSetTodo([
+          {
+            ...listItem,
+            key: todoItemKey,
+          },
+          ...todoList,
+        ]),
       "",
       {
         method: "POST",
@@ -28,11 +32,11 @@ function NewItem(props) {
         body: listItem,
       }
     );
-    document.querySelector(".new-todo__input").value = "";
+    newTodoActinRef.current.value = "";
   }
 
   function addNewTodoAction() {
-    const todoAction = document.querySelector(".new-todo__input").value.trim();
+    const todoAction = newTodoActinRef.current.value.trim();
     if (todoAction) {
       const todoNewItem = generateTodoObj(todoAction, todoList.length);
       return todoNewItem;
@@ -48,21 +52,22 @@ function NewItem(props) {
         }`}
         onClick={addTodo}
       >
-        <div className={`submit-btn ${!isLightMode && "submit-btn__dark"}`}>
+        <button className={`submit-btn ${!isLightMode && "submit-btn__dark"}`}>
           <label>add</label>
-        </div>
+        </button>
       </div>
       <input
         type="text"
         className="new-todo__input"
         autoFocus
+        ref={newTodoActinRef}
         placeholder="Start typing here"
         onKeyPress={(event) => {
           if (event.key === "Enter") {
             addTodo();
           }
         }}
-      ></input>
+      />
     </div>
   );
 }

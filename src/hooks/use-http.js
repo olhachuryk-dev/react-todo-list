@@ -1,12 +1,13 @@
 import { useCallback, useState } from "react";
+import { useAuth } from "../Context/AuthContext";
 
 function useHttp() {
+  const {currentUser} = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
   const sendRequest = useCallback((setDataFn, urlExtension, requestInit) => {
     fetch(
-      `https://todo-app-1719e-default-rtdb.europe-west1.firebasedatabase.app/todo/${
+      `https://todo-app-1719e-default-rtdb.europe-west1.firebasedatabase.app/user/${currentUser.uid}/${
         urlExtension ? urlExtension : ""
       }.json`,
       {
@@ -42,7 +43,7 @@ function useHttp() {
         console.log(err);
         setError(err.message || "Something went wrong :(");
       });
-  }, []);
+  }, [currentUser]);
   return {
     sendRequest,
     error,

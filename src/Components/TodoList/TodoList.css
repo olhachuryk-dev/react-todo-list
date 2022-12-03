@@ -2,8 +2,8 @@
   background-color: inherit;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
-  box-shadow: 0 45px 45px 12px hsla(233, 11%, 84%, 0.686);
+  box-shadow: 0 45px 45px 12px hsla(233, 11%, 84%, 0.6);
 }
 .todo-list__dark{
-  box-shadow: 0 45px 45px 12px rgba(0, 0, 0, 0.615);
+  box-shadow: 0 45px 45px 12px rgba(0, 0, 0, 0.6);
 }

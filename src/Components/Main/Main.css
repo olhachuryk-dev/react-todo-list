@@ -7,3 +7,16 @@ main {
   justify-content: center;
   gap: 2rem;
 }
+
+@media (max-width: 375px){
+  main {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+.list-instructions{
+  text-align: center;
+  color:  hsla(240, 3%, 58%, 0.621);
+  padding-top: 2rem;
+}

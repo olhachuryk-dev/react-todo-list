@@ -1,7 +1,7 @@
 import React from "react";
-import { useTheme } from "../ThemeContext/ThemeContext";
+import { useTheme } from "../../Context/themeContext";
 import { Draggable } from "@hello-pangea/dnd";
-import { useTodo } from "../Main/Main";
+import { useTodo } from "../../Context/todoContext";
 import CompleteTodo from "../CompleteTodo/CompleteTodo";
 import useHttp from "../../hooks/use-http";
 import "./TodoItem.css";
@@ -46,7 +46,7 @@ function TodoItem(props) {
           <p>{action}</p>
           <img
             alt="delete"
-            src="/images/icon-cross.svg"
+            src="./images/icon-cross.svg"
             className="todo-delete"
             onClick={deleteTodoItem}
           />
