@@ -1,15 +1,13 @@
 import React from "react";
 import { useTheme } from "../../Context/themeContext";
-import { useTodo } from "../../Context/todoContext";
 import TodoItem from "../TodoItem/TodoItem";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
-import useHttp from "../../hooks/use-http";
 import "./TodoList.css";
+import useTodoCRUD from "../../hooks/useTodoCRUD";
 
 function TodoList(props) {
-  const todoList = useTodo();
   const isLightMode = useTheme();
-  const { sendRequest } = useHttp();
+  const {updateTodo} = useTodoCRUD();
 
   const handleOnDragEnd = (result) => {
     if (!result.destination) return; //to avoid errors when dropping outside our dropzone
@@ -37,28 +35,7 @@ function TodoList(props) {
     };
     reorderedItem[0].order = newOrder();
 
-    props.callSetTodo(
-      todoList
-        .map((e) => {
-          if (e.key === reorderedItem[0].key) {
-            return {
-              ...e,
-              order: reorderedItem[0].order,
-            };
-          } else return e;
-        })
-        .sort((a, b) => a.order - b.order)
-    );
-    const requestInit = {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: {
-        order: reorderedItem[0].order,
-      },
-    };
-    sendRequest(() => {}, reorderedItem[0].key, requestInit);
+    updateTodo(reorderedItem[0])
   };
 
   return (
@@ -77,7 +54,6 @@ function TodoList(props) {
                 todo={todo}
                 index={index}
                 key={todo.key}
-                callUpdateTodoItems={props.callUpdateTodo}
               />
             ))}
             {provided.placeholder}

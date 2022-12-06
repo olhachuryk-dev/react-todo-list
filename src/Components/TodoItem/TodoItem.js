@@ -1,32 +1,18 @@
 import React from "react";
 import { useTheme } from "../../Context/themeContext";
 import { Draggable } from "@hello-pangea/dnd";
-import { useTodo } from "../../Context/todoContext";
 import CompleteTodo from "../CompleteTodo/CompleteTodo";
-import useHttp from "../../hooks/use-http";
 import "./TodoItem.css";
+import useTodoCRUD from "../../hooks/useTodoCRUD";
 
 function TodoItem(props) {
-  const todoList = useTodo();
+  const { deleteTodo } = useTodoCRUD();
   const { todo, index } = props;
   const action = todo.completed ? <s>{todo.action}</s> : todo.action;
   const isLightMode = useTheme();
-  const { sendRequest } = useHttp();
 
-  function updateTodoStatus(status) {
-    return props.callUpdateTodoItems({...todo, completed: status});
-  }
-  const deleteTodoItem = () => {
-    const cleanedTodo = todoList.filter(
-      (existingTodoItem) => existingTodoItem.key !== todo.key
-    );
-    sendRequest(
-      props.callSetTodo(cleanedTodo),
-      todo.key,
-      {
-        method: "DELETE"
-      }
-    )
+  const deleteTodoHandler = () => {
+    deleteTodo(props.todo)
   };
 
   return (
@@ -39,16 +25,13 @@ function TodoItem(props) {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <CompleteTodo
-            completed={todo.completed}
-            callUpdateTodoStatus={updateTodoStatus}
-          />
+          <CompleteTodo todo={todo} />
           <p>{action}</p>
           <img
             alt="delete"
             src="./images/icon-cross.svg"
             className="todo-delete"
-            onClick={deleteTodoItem}
+            onClick={deleteTodoHandler}
           />
         </li>
       )}

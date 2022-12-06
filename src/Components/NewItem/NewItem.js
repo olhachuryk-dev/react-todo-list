@@ -1,44 +1,35 @@
 import React, { useRef } from "react";
 import { useTheme } from "../../Context/themeContext";
 import { useTodo } from "../../Context/todoContext";
+import useTodoCRUD from "../../hooks/useTodoCRUD";
 import { generateTodoObj } from "../Main/Main";
-import useHttp from "../../hooks/use-http";
 import "./NewItem.css";
 
-function NewItem(props) {
+function NewItem() {
   const isLightMode = useTheme();
   const newTodoActinRef = useRef();
   const todoList = useTodo();
-  const { sendRequest } = useHttp();
+
+  const { writeNewTodo, error, loading } = useTodoCRUD();
 
   function addTodo() {
     const listItem = addNewTodoAction();
     if (!listItem) return;
-    sendRequest(
-      (todoItemKey) =>
-        props.callSetTodo([
-          {
-            ...listItem,
-            key: todoItemKey,
-          },
-          ...todoList,
-        ]),
-      "",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: listItem,
-      }
-    );
+    if (error) {
+      console.log(error);
+      return;
+    }
+    writeNewTodo(listItem);
     newTodoActinRef.current.value = "";
   }
 
   function addNewTodoAction() {
     const todoAction = newTodoActinRef.current.value.trim();
     if (todoAction) {
-      const todoNewItem = generateTodoObj(todoAction, todoList.length);
+      const todoNewItem = generateTodoObj(
+        todoAction,
+        todoList.length ? todoList[0].order - 1 : 0
+      );
       return todoNewItem;
     }
     return;
@@ -52,7 +43,10 @@ function NewItem(props) {
         }`}
         onClick={addTodo}
       >
-        <button className={`submit-btn ${!isLightMode && "submit-btn__dark"}`}>
+        <button
+          disabled={loading}
+          className={`submit-btn ${!isLightMode && "submit-btn__dark"}`}
+        >
           <label>add</label>
         </button>
       </div>

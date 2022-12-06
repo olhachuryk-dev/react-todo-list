@@ -23,6 +23,7 @@ export default function Menu() {
     } catch (e) {
       setError(e.message);
     }
+    setMenuClicked(false)
   }
 
   if (!currentUser) return;

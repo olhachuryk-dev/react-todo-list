@@ -1,23 +1,27 @@
 import React from "react";
 import { useTheme } from "../../Context/themeContext";
+import useTodoCRUD from "../../hooks/useTodoCRUD";
 import "./CompleteTodo.css";
 
-function CompleteTodo(props) {
+function CompleteTodo({todo}) {
+  const { updateTodo } = useTodoCRUD();
   const isLightMode = useTheme();
-  const checkMark = props.completed && (
+  
+  const checkMark = todo.completed && (
     <img src="./images/icon-check.svg" alt="Completed" />
   );
-  const toggleTodoStatus = () => {
-    props.callUpdateTodoStatus(!props.completed);
-  };
+
+  function completeTodoHandler() {
+    return updateTodo({...todo, completed: !todo.completed});
+  }
   return (
     <div
       className={`border-wrap ${!isLightMode && "border-wrap__dark"} ${
-        props.completed && "completed-border-wrap"
+        todo.completed && "completed-border-wrap"
       }`}
-      onClick={toggleTodoStatus}
+      onClick={completeTodoHandler}
     >
-      <button className={`todo-icon ${props.completed && "completed-todo"}`}>
+      <button className={`todo-icon ${todo.completed && "completed-todo"}`}>
         {checkMark}
       </button>
     </div>

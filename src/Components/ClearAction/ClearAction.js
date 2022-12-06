@@ -1,14 +1,22 @@
 import React from "react";
-import TimesButton from "../UI/TimesButton";
+import { useTodo } from "../../Context/todoContext";
+import useTodoCRUD from "../../hooks/useTodoCRUD";
+import "./ClearAction.css";
 
-function ClearAction(props) {
-  const deleteCompleted = () => {
-    props.callDeleteCompletedTodo();
-  };
+function ClearAction() {
+  const todoList = useTodo();
+  const { deleteTodo } = useTodoCRUD();
+  const completedTodo = todoList.filter((todo) => todo.completed === true);
+
+  function clearComletedHandler() {
+    completedTodo.forEach(item => {
+      deleteTodo(item)
+    });
+  }
   return (
-    <TimesButton onClick={deleteCompleted}>
+    <button className="clear-completed" onClick={clearComletedHandler}>
       Clear Completed
-    </TimesButton>
+    </button>
   );
 }
 

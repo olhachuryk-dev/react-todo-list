@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { TodoContext } from "../../Context/todoContext";
 import Card from "../Card/Card";
 import MainFooter from "../MainFooter/MainFooter";
@@ -6,18 +6,21 @@ import NewItem from "../NewItem/NewItem";
 import TodoList from "../TodoList/TodoList";
 import Loading from "../../UI/Loading";
 import "./Main.css";
-import useTodoFetch from "../../hooks/use-todo-fetch";
+import useTodoCRUD from "../../hooks/useTodoCRUD";
 
-export const generateTodoObj = (todoAction, index, id) => {
-  return { completed: false, key: id, action: todoAction, order: index };
+export const generateTodoObj = (todoAction, index) => {
+  return { completed: false, action: todoAction, order: index };
 };
-
 function Main() {
-  const { requestResult, useTodoList, updateTodo } = useTodoFetch();
-  const { error, isLoading } = requestResult;
-  const { todoList, setTodoList } = useTodoList;
-
+  const { readTodo, updateTodo, todoList, error, loading } = useTodoCRUD();
   const [isCompletedFilter, setIsCompletedFilter] = useState(null);
+
+  useEffect(
+    () => {
+      readTodo()
+    },
+    [] // eslint-disable-line react-hooks/exhaustive-deps
+  )
 
   const filteredTodoList = useMemo(
     () =>
@@ -29,14 +32,13 @@ function Main() {
   );
 
   function displayList() {
-    if (isLoading) {
+    if (loading) {
       return <Loading />;
     } else {
       return (
         <Card>
           <TodoList
             callUpdateTodo={updateTodo}
-            callSetTodo={setTodoList}
             filteredTodoList={filteredTodoList}
           />
           <MainFooter
@@ -58,7 +60,7 @@ function Main() {
         ) : (
           <main>
             <Card>
-              <NewItem callSetTodo={setTodoList} />
+              <NewItem />
             </Card>
             {displayList()}
           </main>

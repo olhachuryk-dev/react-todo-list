@@ -10,9 +10,6 @@ function MainFooter(props) {
   const activeItems = todoList.filter((todo) => {
     return todo.completed === false;
   });
-  function deleteCompletedTodo() {
-    return
-  }
   function filterByStatus(isCompleted) {
     props.callFilterTodoList(isCompleted);
   }
@@ -20,7 +17,7 @@ function MainFooter(props) {
     <div className="main-footer__container">
       <ItemsCounter amount={activeItems.length} />
       <Filters callFilterByStatus={filterByStatus} />
-      <ClearAction callDeleteCompletedTodo={deleteCompletedTodo} />
+      <ClearAction />
     </div>
   );
 }
