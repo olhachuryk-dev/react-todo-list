@@ -28,7 +28,6 @@ export default function useTodoCRUD() {
       (snapshot) => {
         const data = snapshot.val();
         setTodoList(transformTodoList(data));
-        console.log(data)
         setLoading(false);
       },
       (error) => setError(error.message)

@@ -34,7 +34,6 @@ function LoginForm() {
       await login(emailRef.current.value, passwordRef.current.value);
       navigate("/");
     } catch (e) {
-      // console.log(e.message);
       setError(e.message);
     }
     setLoading(false);
