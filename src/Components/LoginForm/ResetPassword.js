@@ -42,7 +42,7 @@ function ResetPassword() {
   }
 
   function goBackHandler() {
-    return navigate("/login");
+    return navigate("/react-todo-list/login");
   }
 
   return (

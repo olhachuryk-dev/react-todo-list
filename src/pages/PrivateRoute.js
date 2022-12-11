@@ -4,5 +4,5 @@ import { useAuth } from "../Context/AuthContext";
 
 export default function PrivateRoute({ children }) {
   const { currentUser } = useAuth();
-  return currentUser ? children : <Navigate to="/login" />;
+  return currentUser ? children : <Navigate to="/react-todo-list/login" />;
 }

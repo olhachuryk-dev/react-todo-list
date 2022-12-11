@@ -52,7 +52,7 @@ function NewItem() {
       </div>
       <input
         type="text"
-        className="new-todo__input"
+        className={`new-todo_input ${!isLightMode && "new-todo_input__dark"}`}
         autoFocus
         ref={newTodoActinRef}
         placeholder="Start typing here"

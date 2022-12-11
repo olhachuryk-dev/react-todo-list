@@ -4,8 +4,7 @@ import { useTheme } from "../../Context/themeContext";
 import Card from "../Card/Card";
 import "./Menu.css";
 
-export default function Menu() {
-  const [menuClicked, setMenuClicked] = useState(false);
+const Menu = React.forwardRef(({menuClicked, setMenuClicked}, ref) => {
   const [error, setError] = useState("");
 
   const { currentUser, logout } = useAuth();
@@ -23,38 +22,37 @@ export default function Menu() {
     } catch (e) {
       setError(e.message);
     }
-    setMenuClicked(false)
+    setMenuClicked(false);
   }
 
   if (!currentUser) return;
 
   return (
-    <>
-      <button
-        className="menu-icon"
-        role={"menu"}
-        onClick={handleMenu}
-      >
+    <div id="menu" ref={ref}>
+      <button className="menu-icon" role={"menu"} onClick={handleMenu}>
         <div className={menuClicked ? "clicked-menu_part1" : ""} />
         <div className={menuClicked ? "clicked-menu_part2" : ""} />
         <div className={menuClicked ? "clicked-menu_part3" : ""} />
       </button>
       <Card>
-        <nav className={menuClicked ? "nav_after" : ""}>
-        {(error && menuClicked) ? (
-          <div
-            className={`logout-error ${!isLightMode && "logout-error__dark"}`}
-          >
-            {"error"}
-          </div>
-        ) : null}
-          <ul>
+        <nav className={menuClicked ? "nav_active" : ""}>
+          {error && menuClicked ? (
+            <div
+              className={`logout-error ${isLightMode ? "" : "logout-error__dark"}`}
+            >
+              {"error"}
+            </div>
+          ) : null}
+          <ul className={isLightMode ? "" : "nav-ul_dark"}>
+            <li>👤 {currentUser.email}</li>
             <li>
               <button onClick={handleLogout}>Log out</button>
             </li>
           </ul>
         </nav>
       </Card>
-    </>
+    </div>
   );
-}
+})
+
+export default Menu;

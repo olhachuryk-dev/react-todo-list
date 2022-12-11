@@ -32,7 +32,7 @@ function LoginForm() {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      navigate("/");
+      navigate("/react-todo-list/");
     } catch (e) {
       setError(e.message);
     }
@@ -76,12 +76,12 @@ function LoginForm() {
             </button>
           </div>
         </form>
-        <Link to="/forgot-password" className="forgot-password__link">
+        <Link to="/react-todo-list/forgot-password" className="forgot-password__link">
           Forgot password?
         </Link>
       </Card>
       <p className="login-instructions">
-        Need an account? <Link to="/signup">Sign Up</Link>
+        Need an account? <Link to="/react-todo-list/signup">Sign Up</Link>
       </p>
     </>
   );

@@ -56,7 +56,7 @@ nav {
   transition: 0.5s;
 }
 
-.nav_after {
+.nav_active {
   width: max-content;
   padding: 2rem;
   transition: 0.5s;
@@ -64,6 +64,10 @@ nav {
 
 nav ul{
   list-style: none;
+  white-space: nowrap;
+  font-size: 0;
+  color: transparent;
+  transition: 0.3s;
 }
 
 nav button {
@@ -72,17 +76,28 @@ nav button {
   color: transparent;
   background-color: transparent;
   border: none;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 nav button:hover {
   text-decoration: underline;
 }
 
-.nav_after button {
+.nav_active ul {
+  line-height: 1.5rem;
+  color: hsl(235, 19%, 35%);
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.nav_active .nav-ul_dark{
+  color: hsl(234, 11%, 52%);
+}
+
+.nav_active button {
   font-size: 1rem;
   color: cornflowerblue;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 .logout-error {

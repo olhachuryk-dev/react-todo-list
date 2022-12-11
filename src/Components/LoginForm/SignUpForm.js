@@ -35,7 +35,7 @@ function SignUpForm() {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
-      navigate("/");
+      navigate("/react-todo-list/");
     } catch (e) {
       setError(e.message);
     }
@@ -95,7 +95,7 @@ function SignUpForm() {
         </form>
       </Card>
       <p className="login-instructions">
-        Already have an account? <Link to="/login">Log In</Link>
+        Already have an account? <Link to="/react-todo-list/login">Log In</Link>
       </p>
     </>
   );
