@@ -1,6 +1,12 @@
 # React application: Todo-list "Gradient"
 
 Application Todo-list "Gradient" is developed using JavaScript, ReactJS, Firebase, React Router, and CSS.
+My project demonstrates my familiarity with modern web development technologies such as ReactJS, Firebase, and React Router.
+- I followed best practices for structuring a React application, such as using separate files for each UI component and keeping their CSS styles close to improve maintainability and reduce redundancy.
+- I implemented global state management using the Context API, which shows my ability to design and implement complex data structures and manage data flow in a React application.
+- Additionally, my project integrates with Firebase for authentication and database functionality, demonstrating my ability to work with external APIs and services.
+- I paid attention to detail in terms of UI design and functionality, such as the ability to switch between light and dark themes, and the use of custom React hooks to extract and reuse logic.
+- Overall, my project showcases my skills and understanding of modern web development technologies and best practices, which can help me stand out to potential employers.
 
 ## Architecture
 **src** folder
