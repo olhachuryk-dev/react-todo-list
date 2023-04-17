@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../../Context/AuthContext";
-import { useTheme } from "../../Context/themeContext";
-import Card from "../Card/Card";
+import Card from "../../UI/Card/Card";
 import { Link, useNavigate } from "react-router-dom";
 import "./LoginForm.css";
 
@@ -13,17 +12,9 @@ function LoginForm() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // const { authorize } = useAuth();
-  const isLightMode = useTheme();
-  const fieldContainerClasses = `field_container ${
-    isLightMode ? "" : "field_container__dark"
-  }`;
 
   const cardStyle = {
     width: "min-content",
-    boxShadow: `0 45px 45px 12px ${
-      isLightMode ? "hsla(233, 11%, 84%, 0.6)" : "rgba(0, 0, 0, 0.6)"
-    }`,
   };
 
   async function handleSubmit(e) {
@@ -32,7 +23,7 @@ function LoginForm() {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      navigate("/react-todo-list/");
+      navigate("/");
     } catch (e) {
       setError(e.message);
     }
@@ -41,15 +32,15 @@ function LoginForm() {
 
   return (
     <>
-      <Card style={cardStyle}>
+      <Card style={cardStyle} showShadow={true}>
         <h2 className="login-heading">Log In</h2>
         {error ? (
-          <div className={`login-error ${!isLightMode && "login-error__dark"}`}>
+          <div className='login-error'>
             {error}
           </div>
         ) : null}
         <form className="login-form" onSubmit={handleSubmit}>
-          <div className={fieldContainerClasses}>
+          <div className='field_container'>
             <label htmlFor="email">Email</label>
             <input
               placeholder="email"
@@ -59,7 +50,7 @@ function LoginForm() {
               ref={emailRef}
             />
           </div>
-          <div className={fieldContainerClasses}>
+          <div className='field_container'>
             <label htmlFor="password">Password</label>
             <input
               placeholder="password"
@@ -70,18 +61,18 @@ function LoginForm() {
               ref={passwordRef}
             />
           </div>
-          <div className={fieldContainerClasses}>
+          <div className='field_container'>
             <button type="submit" className="login-btn" disabled={loading}>
               Log In
             </button>
           </div>
         </form>
-        <Link to="/react-todo-list/forgot-password" className="forgot-password__link">
+        <Link to="/forgot-password" className="forgot-password__link">
           Forgot password?
         </Link>
       </Card>
       <p className="login-instructions">
-        Need an account? <Link to="/react-todo-list/signup">Sign Up</Link>
+        Need an account? <Link to="/signup" className="create-account__link">Sign Up</Link>
       </p>
     </>
   );

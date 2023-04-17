@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { TodoContext } from "../../Context/todoContext";
-import Card from "../Card/Card";
+import Card from "../../UI/Card/Card";
 import MainFooter from "../MainFooter/MainFooter";
 import NewItem from "../NewItem/NewItem";
 import TodoList from "../TodoList/TodoList";
-import Loading from "../../UI/Loading";
-import "./Main.css";
+import Loading from "../../UI/Loading/Loading";
 import useTodoCRUD from "../../hooks/useTodoCRUD";
+import "./Main.css";
 
 export const generateTodoObj = (todoAction, index) => {
   return { completed: false, action: todoAction, order: index };
@@ -17,10 +17,10 @@ function Main() {
 
   useEffect(
     () => {
-      readTodo()
+      readTodo();
     },
     [] // eslint-disable-line react-hooks/exhaustive-deps
-  )
+  );
 
   const filteredTodoList = useMemo(
     () =>

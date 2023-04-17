@@ -1,8 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
-import { useTheme } from "../../Context/themeContext";
-import Card from "../Card/Card";
+import Card from "../../UI/Card/Card";
 import "./LoginForm.css";
 
 function SignUpForm() {
@@ -14,16 +13,8 @@ function SignUpForm() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const isLightMode = useTheme();
-
-  const fieldContainerClasses = `field_container ${
-    isLightMode ? "" : "field_container__dark"
-  }`;
   const cardStyle = {
     width: "min-content",
-    boxShadow: `0 45px 45px 12px ${
-      isLightMode ? "hsla(233, 11%, 84%, 0.6)" : "rgba(0, 0, 0, 0.6)"
-    }`,
   };
 
   async function handleSubmit(e) {
@@ -35,7 +26,7 @@ function SignUpForm() {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
-      navigate("/react-todo-list/");
+      navigate("/");
     } catch (e) {
       setError(e.message);
     }
@@ -44,15 +35,11 @@ function SignUpForm() {
 
   return (
     <>
-      <Card style={cardStyle}>
+      <Card style={cardStyle} showShadow={true}>
         <h2 className="login-heading">Sign Up</h2>
-        {error ? (
-          <div className={`login-error ${!isLightMode && "login-error__dark"}`}>
-            {error}
-          </div>
-        ) : null}
+        {error ? <div className="login-error">{error}</div> : null}
         <form className="login-form" onSubmit={handleSubmit}>
-          <div className={fieldContainerClasses}>
+          <div className="field_container">
             <label htmlFor="email">Email</label>
             <input
               placeholder="email"
@@ -63,7 +50,7 @@ function SignUpForm() {
               ref={emailRef}
             />
           </div>
-          <div className={fieldContainerClasses}>
+          <div className="field_container">
             <label htmlFor="password">Password</label>
             <input
               placeholder="password"
@@ -75,7 +62,7 @@ function SignUpForm() {
               ref={passwordRef}
             />
           </div>
-          <div className={fieldContainerClasses}>
+          <div className="field_container">
             <label htmlFor="password_repeat">Confirm password</label>
             <input
               placeholder="confirm password"
@@ -87,7 +74,7 @@ function SignUpForm() {
               ref={passwordConfirmRef}
             />
           </div>
-          <div className={fieldContainerClasses}>
+          <div className="field_container">
             <button type="submit" className="login-btn" disabled={loading}>
               Sign Up
             </button>
@@ -95,7 +82,10 @@ function SignUpForm() {
         </form>
       </Card>
       <p className="login-instructions">
-        Already have an account? <Link to="/react-todo-list/login">Log In</Link>
+        Already have an account?{" "}
+        <Link to="/login" className="create-account__link">
+          Log In
+        </Link>
       </p>
     </>
   );

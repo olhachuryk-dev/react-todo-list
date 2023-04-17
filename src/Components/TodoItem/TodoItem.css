@@ -3,25 +3,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid hsl(236, 33%, 92%);
+  border-bottom: 2px solid var(--border-color);
   padding: 1rem;
   position: relative;
-}
-
-.todo-item__dark {
-  border-bottom-color: hsl(237, 14%, 26%);
 }
 
 .todo-item > p {
   text-align: left;
   width: 80%;
-  color: hsl(235, 19%, 35%);
+  color: var(--text-color-primary);
   cursor: pointer;
   overflow-wrap: break-word;
-}
-
-.todo-item__dark > p {
-  color: hsl(234, 11%, 52%);
 }
 
 .todo-delete {

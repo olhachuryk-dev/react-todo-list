@@ -1,59 +1,73 @@
-import React, { useRef, useState } from "react";
-import Header from "./Components/Header/Header";
-import Main from "./Components/Main/Main";
-import Footer from "./Components/Footer/Footer";
-import SignUpForm from "./Components/LoginForm/SignUpForm";
-import LoginForm from "./Components/LoginForm/LoginForm";
-import { ThemeProvider } from "./Context/themeContext";
+import "./App.css";
+import React, { Suspense, lazy, useRef, useState } from "react";
 import { AuthProvider } from "./Context/AuthContext";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import PrivateRoute from "./pages/PrivateRoute";
-import ResetPassword from "./Components/LoginForm/ResetPassword";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+import Header from "./Components/Header/Header";
+import Loading from "./UI/Loading/Loading";
+const PrivateRoute = lazy(() => import("./pages/PrivateRoute"));
+const Main = lazy(() => import("./Components/Main/Main"));
+const Footer = lazy(() => import("./Components/Footer/Footer"));
+const SignUpForm = lazy(() => import("./Components/LoginForm/SignUpForm"));
+const LoginForm = lazy(() => import("./Components/LoginForm/LoginForm"));
+const ResetPassword = lazy(() =>
+  import("./Components/LoginForm/ResetPassword")
+);
 
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
   const menuElementRef = useRef({});
+  const [isLightMode, setIsLightMode] = useState(
+    localStorage.getItem("todo_light_theme") === "true"
+  );
+
+  const toggleTheme = () => {
+    localStorage.setItem("todo_light_theme", !isLightMode);
+    setIsLightMode((mode) => !mode);
+  };
   function menuUnfocusHandler(e) {
+    if (!menuClicked) return;
     if (menuElementRef.current && !menuElementRef.current.contains(e.target)) {
       setMenuClicked(false);
     }
   }
   return (
-    <div onClick={menuUnfocusHandler}>
-      <ThemeProvider>
-        <BrowserRouter>
-          <AuthProvider>
-            <Header
-              menuClicked={menuClicked}
-              setMenuClicked={setMenuClicked}
-              ref={menuElementRef}
-            />
+    <div
+      onClick={menuUnfocusHandler}
+      className={`app-container ${
+        isLightMode ? "light-mode_theme" : "dark-mode_theme"
+      }`}
+    >
+      <HashRouter>
+        <AuthProvider>
+          <Header
+            menuClicked={menuClicked}
+            setMenuClicked={setMenuClicked}
+            ref={menuElementRef}
+            toggleTheme={toggleTheme}
+            isLightMode={isLightMode}
+          />
+          <Suspense fallback={<Loading />}>
             <Routes>
               <Route
                 exact
-                path="/"
-                element={<Navigate to="/react-todo-list" />}
-              />
-              <Route
-                exact
-                path="/react-todo-list"
+                path="/*"
                 element={
                   <PrivateRoute>
                     <Main />{" "}
                   </PrivateRoute>
                 }
               />
-              <Route path="/react-todo-list/signup" element={<SignUpForm />} />
-              <Route path="/react-todo-list/login" element={<LoginForm />} />
+              <Route path="signup" element={<SignUpForm />} />
+              <Route path="login" element={<LoginForm />} />
               <Route
-                path="/react-todo-list/forgot-password"
+                path="forgot-password"
                 element={<ResetPassword />}
               />
             </Routes>
-          </AuthProvider>
-        </BrowserRouter>
-        <Footer />
-      </ThemeProvider>
+          </Suspense>
+        </AuthProvider>
+      </HashRouter>
+      <Footer />
     </div>
   );
 }

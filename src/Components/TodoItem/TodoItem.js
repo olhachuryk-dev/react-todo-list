@@ -1,5 +1,4 @@
 import React from "react";
-import { useTheme } from "../../Context/themeContext";
 import { Draggable } from "@hello-pangea/dnd";
 import CompleteTodo from "../CompleteTodo/CompleteTodo";
 import "./TodoItem.css";
@@ -9,7 +8,6 @@ function TodoItem(props) {
   const { deleteTodo } = useTodoCRUD();
   const { todo, index } = props;
   const action = todo.completed ? <s>{todo.action}</s> : todo.action;
-  const isLightMode = useTheme();
 
   const deleteTodoHandler = () => {
     deleteTodo(props.todo)
@@ -20,7 +18,7 @@ function TodoItem(props) {
       {(provided) => (
         <li
           id={todo.key.toString()}
-          className={`todo-item ${!isLightMode && "todo-item__dark"}`}
+          className='todo-item'
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}

@@ -1,11 +1,9 @@
 import React from "react";
-import { useTheme, useThemeUpdate } from "../../Context/themeContext";
 import Menu from "./Menu";
 import "./Header.css";
 
-const Header = React.forwardRef(({ menuClicked, setMenuClicked }, ref) => {
-  const isLightMode = useTheme();
-  const toggleTheme = useThemeUpdate();
+const Header = React.forwardRef(({ menuClicked, setMenuClicked, toggleTheme, isLightMode }, ref) => {
+  const onClickThemeHandler = () => {toggleTheme()};
   const lightModeIcon = isLightMode ? "icon-moon.svg" : "icon-sun.svg";
   return (
     <header>
@@ -20,7 +18,7 @@ const Header = React.forwardRef(({ menuClicked, setMenuClicked }, ref) => {
       <img
         src={`./images/${lightModeIcon}`}
         alt="light-mode"
-        onClick={toggleTheme}
+        onClick={onClickThemeHandler}
       />
     </header>
   );

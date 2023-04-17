@@ -4,7 +4,7 @@
   background-color: inherit;
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
-  color: hsl(236, 9%, 61%);
+  color: var(--text-color-secondary);
   font-weight: 700;
   font-size: 0.7rem;
   padding: 1rem;

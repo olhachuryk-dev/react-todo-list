@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { useAuth } from "../../Context/AuthContext";
-import { useTheme } from "../../Context/themeContext";
-import Card from "../Card/Card";
+import Card from "../../UI/Card/Card";
 import "./Menu.css";
 
-const Menu = React.forwardRef(({menuClicked, setMenuClicked}, ref) => {
+const Menu = React.forwardRef(({ menuClicked, setMenuClicked }, ref) => {
   const [error, setError] = useState("");
 
   const { currentUser, logout } = useAuth();
-  const isLightMode = useTheme();
 
   function handleMenu() {
     setError("");
@@ -37,13 +35,9 @@ const Menu = React.forwardRef(({menuClicked, setMenuClicked}, ref) => {
       <Card>
         <nav className={menuClicked ? "nav_active" : ""}>
           {error && menuClicked ? (
-            <div
-              className={`logout-error ${isLightMode ? "" : "logout-error__dark"}`}
-            >
-              {"error"}
-            </div>
+            <div className="logout-error">{"error"}</div>
           ) : null}
-          <ul className={isLightMode ? "" : "nav-ul_dark"}>
+          <ul>
             <li>👤 {currentUser.email}</li>
             <li>
               <button onClick={handleLogout}>Log out</button>
@@ -53,6 +47,6 @@ const Menu = React.forwardRef(({menuClicked, setMenuClicked}, ref) => {
       </Card>
     </div>
   );
-})
+});
 
 export default Menu;

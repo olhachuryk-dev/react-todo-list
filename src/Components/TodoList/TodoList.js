@@ -1,16 +1,14 @@
 import React from "react";
-import { useTheme } from "../../Context/themeContext";
 import TodoItem from "../TodoItem/TodoItem";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import "./TodoList.css";
 import useTodoCRUD from "../../hooks/useTodoCRUD";
 
 function TodoList(props) {
-  const isLightMode = useTheme();
-  const {updateTodo} = useTodoCRUD();
+  const { updateTodo } = useTodoCRUD();
 
   const handleOnDragEnd = (result) => {
-    if(props.filteredTodoList.length <= 1) return;
+    if (props.filteredTodoList.length <= 1) return;
     if (!result.destination) return; //to avoid errors when dropping outside our dropzone
     const newIndex = result.destination.index;
     const prevIndex = newIndex - 1;
@@ -36,7 +34,7 @@ function TodoList(props) {
     };
     reorderedItem[0].order = newOrder();
 
-    updateTodo(reorderedItem[0])
+    updateTodo(reorderedItem[0]);
   };
 
   return (
@@ -45,16 +43,12 @@ function TodoList(props) {
       <Droppable droppableId="todos">
         {(provided) => (
           <ul
-            className={`todo-list ${!isLightMode && "todo-list__dark"}`}
+            className="todo-list"
             {...provided.droppableProps}
             ref={provided.innerRef}
           >
             {props.filteredTodoList.map((todo, index) => (
-              <TodoItem
-                todo={todo}
-                index={index}
-                key={todo.key}
-              />
+              <TodoItem todo={todo} index={index} key={todo.key} />
             ))}
             {provided.placeholder}
           </ul>

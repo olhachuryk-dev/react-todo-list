@@ -1,5 +1,5 @@
 footer{
-  color:  hsla(240, 3%, 58%, 0.621);
+  color:  var(--text-color-secondary);
   padding-bottom: 2rem;
   width: 100%;
 }
@@ -11,5 +11,9 @@ footer > article {
 
 footer a{
   text-decoration: none;
-  color: hsla(258, 47%, 48%, 0.621);
+  color: hsl(258, 47%, 48%);
+}
+
+footer a:hover{
+  text-decoration: underline;
 }

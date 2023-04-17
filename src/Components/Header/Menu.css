@@ -39,12 +39,6 @@
   top: -37.5%;
   transition: 0.5s;
 }
-/* .nav_container {
-  display: none;
-}
-.nav_container:has(.nav_after) {
-  display: block;
-} */
 nav {
   background-color: inherit;
   border-radius: inherit;
@@ -85,13 +79,13 @@ nav button:hover {
 
 .nav_active ul {
   line-height: 1.5rem;
-  color: hsl(235, 19%, 35%);
+  color: var(--text-color-primary);
   font-size: 1rem;
   transition: 0.2s;
 }
 
-.nav_active .nav-ul_dark{
-  color: hsl(234, 11%, 52%);
+.nav_active{
+  color: var(--text-color-secondary);
 }
 
 .nav_active button {
@@ -102,11 +96,7 @@ nav button:hover {
 
 .logout-error {
   background-color: rgba(205, 92, 92, 0.5);
-  color: rgb(156, 13, 13);
+  color: var(--error-text-color);
   padding: 1rem;
   width: 100%;
-}
-
-.logout-error__dark{
-  color: indianred;
 }

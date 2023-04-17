@@ -1,28 +1,20 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
-import { useTheme } from "../../Context/themeContext";
-import Card from "../Card/Card";
+import Card from "../../UI/Card/Card";
 import "./LoginForm.css";
 
 function ResetPassword() {
   const { resetPassword } = useAuth();
   const navigate = useNavigate();
-  const isLightMode = useTheme();
   const emailRef = useRef();
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const fieldContainerClasses = `field_container ${
-    isLightMode ? "" : "field_container__dark"
-  }`;
   const cardStyle = {
     width: "min-content",
-    boxShadow: `0 45px 45px 12px ${
-      isLightMode ? "hsla(233, 11%, 84%, 0.6)" : "rgba(0, 0, 0, 0.6)"
-    }`,
   };
 
   async function handleSubmit(e) {
@@ -42,26 +34,22 @@ function ResetPassword() {
   }
 
   function goBackHandler() {
-    return navigate("/react-todo-list/login");
+    return navigate("login");
   }
 
   return (
     <>
-      <Card style={cardStyle}>
+      <Card style={cardStyle} showShadow={true}>
         <h2 className="login-heading">Password Reset</h2>
-        {error ? (
-          <div className={`login-error ${!isLightMode && "login-error__dark"}`}>
-            {error}
-          </div>
-        ) : null}
+        {error ? <div className="login-error">{error}</div> : null}
         <div
-          className={`password-reset_message ${!isLightMode&&"password-reset_message__dark"}`}
+          className="password-reset_message"
           style={{ display: message ? "block" : "none" }}
         >
           {message}
         </div>
         <form className="login-form" onSubmit={handleSubmit}>
-          <div className={fieldContainerClasses}>
+          <div className="field_container">
             <label htmlFor="email">Email</label>
             <input
               id="email"
@@ -72,7 +60,7 @@ function ResetPassword() {
               ref={emailRef}
             />
           </div>
-          <div className={fieldContainerClasses}>
+          <div className="field_container">
             <button type="submit" className="login-btn" disabled={loading}>
               Reset Password
             </button>

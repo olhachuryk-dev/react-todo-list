@@ -2,7 +2,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: hsl(236, 33%, 92%);
+  background-color: var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,16 +14,9 @@
   height: 28px;
   border-radius: 50%;
   border-color: transparent;
-  background-color: white;
+  background-color: var(--background-color-primary);
 }
 
-.border-wrap__dark{
-  background-color: hsl(237, 14%, 26%);
-}
-
-.border-wrap__dark > .todo-icon{
-  background-color: hsl(235, 24%, 19%);
-}
 
 .border-wrap:active,
 .border-wrap:hover{

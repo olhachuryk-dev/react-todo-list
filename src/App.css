@@ -1,17 +1,36 @@
-.app-container{
+.light-mode_theme {
+  --background-color-primary: hsl(0, 0%, 100%);
+  --background-color-secondary: hsl(0, 0%, 98%);
+  --background-image: url("../public/images/bg-desktop-light.jpg");
+  --border-color: hsl(236, 33%, 92%);
+  --text-color-primary: hsl(235, 19%, 35%);
+  --text-color-secondary: hsl(234, 11%, 52%);
+  --error-text-color: hsl(0, 85%, 33%);
+  --success-text-color: hsl(120, 100%, 25%);
+  --box-shadow-color: hsla(233, 11%, 84%, 0.6);
+}
+
+.dark-mode_theme {
+  --background-color-primary: hsl(235, 24%, 19%);
+  --background-color-secondary: hsl(235, 21%, 11%);
+  --background-image: url("../public/images/bg-desktop-dark.jpg");
+  --border-color: hsl(237, 14%, 26%);
+  --text-color-primary: hsl(0, 0%, 66%);
+  --text-color-secondary: hsl(234, 11%, 52%);
+  --error-text-color: hsl(0, 53%, 58%);
+  --success-text-color: hsl(84, 100%, 59%);
+  --box-shadow-color: hsla(0, 0%, 0%, 0.6);
+}
+
+.app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: hsl(0, 0%, 98%);
+  background-color: var(--background-color-secondary);
   min-width: 100%;
   min-height: 100vh;
   background-image: url("../public/images/bg-desktop-light.jpg");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: max(100%, 885px) min(100%, 250px);
-}
-
-.dark-mode {
-  background-color: hsl(235, 21%, 11%);
-  background-image: url("../public/images/bg-desktop-dark.jpg");
 }

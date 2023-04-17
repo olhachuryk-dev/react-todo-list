@@ -1,12 +1,10 @@
 import React, { useRef } from "react";
-import { useTheme } from "../../Context/themeContext";
 import { useTodo } from "../../Context/todoContext";
 import useTodoCRUD from "../../hooks/useTodoCRUD";
 import { generateTodoObj } from "../Main/Main";
 import "./NewItem.css";
 
 function NewItem() {
-  const isLightMode = useTheme();
   const newTodoActinRef = useRef();
   const todoList = useTodo();
 
@@ -38,21 +36,19 @@ function NewItem() {
   return (
     <div className="new-todo__container">
       <div
-        className={`submit-btn__wrap ${
-          !isLightMode && "submit-btn__wrap__dark"
-        }`}
+        className='submit-btn__wrap'
         onClick={addTodo}
       >
         <button
           disabled={loading}
-          className={`submit-btn ${!isLightMode && "submit-btn__dark"}`}
+          className='submit-btn'
         >
           <label>add</label>
         </button>
       </div>
       <input
         type="text"
-        className={`new-todo_input ${!isLightMode && "new-todo_input__dark"}`}
+        className='new-todo_input'
         autoFocus
         ref={newTodoActinRef}
         placeholder="Start typing here"

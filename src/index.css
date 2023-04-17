@@ -10,11 +10,11 @@ body::-webkit-scrollbar {
   width: 10px; /* width of the entire scrollbar */
 }
 
-body::-webkit-scrollbar-track {
+body:has(.light-mode_theme)::-webkit-scrollbar-track {
   background-color: hsl(0, 0%, 98%);
 }
 
-body::-webkit-scrollbar-thumb {
+body:has(.light-mode_theme)::-webkit-scrollbar-thumb {
   background-color: inherit;
   background-image: linear-gradient(
     to bottom,
@@ -25,10 +25,13 @@ body::-webkit-scrollbar-thumb {
   border: 0;
 }
 
-body:has(.dark-mode)::-webkit-scrollbar-track {
+body:has(.dark-mode_theme)::-webkit-scrollbar-track {
   background-color: hsl(235, 21%, 11%);
 }
-body:has(.dark-mode)::-webkit-scrollbar-thumb {
+body:has(.dark-mode_theme)::-webkit-scrollbar-thumb {
+  background-color: inherit;
+  border-radius: 20px;
+  border: 0;
   background-image: linear-gradient(
     to top,
     hsla(192, 100%, 67%, 0.5),

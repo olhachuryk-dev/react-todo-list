@@ -1,24 +1,15 @@
-
 .login-error {
-  background-color: rgba(205, 92, 92, 0.5);
-  color: rgb(156, 13, 13);
+  background-color: hsla(0, 53%, 58%, 0.5);
+  color: var(--error-text-color);
   padding: 1rem;
   width: 100%;
 }
 
-.login-error__dark{
-  color: indianred;
-}
-
-.password-reset_message{
+.password-reset_message {
   background-color: rgba(172, 255, 47, 0.5);
-  color:green;
+  color: var(--success-text-color);
   padding: 1rem;
   width: 100%;
-}
-
-.password-reset_message__dark{
-  color: rgba(172, 255, 47);
 }
 
 .login-form {
@@ -71,11 +62,11 @@
   border-radius: inherit;
   height: calc(3rem - 3px);
   font-size: 1rem;
-  background-color: white;
+  background-color: var(--background-color-primary);
   caret-color: hsl(280, 87%, 65%);
   outline: none;
   resize: none;
-  color: hsl(235, 19%, 35%);
+  color: var(--text-color-primary);
   padding: 0 5px;
 }
 
@@ -90,23 +81,18 @@
   width: calc(100% - 3px);
   font-weight: 700;
   font-size: 1rem;
-  color: white;
-  background-color: white;
+  color: var(--background-color-primary);
+  background-color: var(--background-color-primary);
   background-image: linear-gradient(
     to right bottom,
     hsla(192, 100%, 67%, 0.5),
     hsla(280, 87%, 65%, 0.5)
   );
 }
-
-.field_container__dark > * {
-  background-color: hsl(235, 24%, 19%);
-}
-
 .login-instructions {
   text-align: center;
   width: 100%;
-  color:  hsla(240, 3%, 58%, 0.621);
+  color: var(--text-color-secondary);
   padding-top: 2rem;
 }
 
@@ -116,22 +102,16 @@
   padding-bottom: 1rem;
   display: block;
   text-decoration: none;
-  color: cornflowerblue;
+  color: hsl(219, 79%, 66%);
 }
 
-.forgot-password__link:hover{
+.create-account__link{
+  text-decoration: none;
+  color: hsl(231, 84%, 49%)
+}
+
+.forgot-password__link:hover,
+.link-btn:hover,
+.create-account__link:hover {
   text-decoration: underline;
-}
-
-
-.link-btn:hover {
-  text-decoration: underline;
-}
-
-.field_container__dark > .login-btn {
-  color: hsl(235, 24%, 19%);
-}
-
-.field_container__dark > .login-input {
-  color: hsl(234, 11%, 52%);
 }
