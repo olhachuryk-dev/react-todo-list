@@ -1,15 +1,39 @@
 {
   "files": {
-    "main.css": "/react-todo-list/static/css/main.1243d052.css",
-    "main.js": "/react-todo-list/static/js/main.7f2f4aad.js",
+    "main.css": "/react-todo-list/static/css/main.d0c5b9d6.css",
+    "main.js": "/react-todo-list/static/js/main.84fea068.js",
+    "static/js/145.df280bed.chunk.js": "/react-todo-list/static/js/145.df280bed.chunk.js",
+    "static/css/728.5c0925f0.chunk.css": "/react-todo-list/static/css/728.5c0925f0.chunk.css",
+    "static/js/728.c667b7f9.chunk.js": "/react-todo-list/static/js/728.c667b7f9.chunk.js",
+    "static/css/110.96da666b.chunk.css": "/react-todo-list/static/css/110.96da666b.chunk.css",
+    "static/js/110.31a896e2.chunk.js": "/react-todo-list/static/js/110.31a896e2.chunk.js",
+    "static/css/764.8014def6.chunk.css": "/react-todo-list/static/css/764.8014def6.chunk.css",
+    "static/js/764.f8608e6c.chunk.js": "/react-todo-list/static/js/764.f8608e6c.chunk.js",
+    "static/css/574.8014def6.chunk.css": "/react-todo-list/static/css/574.8014def6.chunk.css",
+    "static/js/574.7b14026e.chunk.js": "/react-todo-list/static/js/574.7b14026e.chunk.js",
+    "static/css/490.8014def6.chunk.css": "/react-todo-list/static/css/490.8014def6.chunk.css",
+    "static/js/490.bc3adde8.chunk.js": "/react-todo-list/static/js/490.bc3adde8.chunk.js",
+    "static/js/266.b5e14cd9.chunk.js": "/react-todo-list/static/js/266.b5e14cd9.chunk.js",
     "static/media/bg-desktop-light.jpg": "/react-todo-list/static/media/bg-desktop-light.3508d620efd5a52bb4ce.jpg",
     "static/media/bg-desktop-dark.jpg": "/react-todo-list/static/media/bg-desktop-dark.73e47dbb723ebc772ef0.jpg",
     "index.html": "/react-todo-list/index.html",
-    "main.1243d052.css.map": "/react-todo-list/static/css/main.1243d052.css.map",
-    "main.7f2f4aad.js.map": "/react-todo-list/static/js/main.7f2f4aad.js.map"
+    "main.d0c5b9d6.css.map": "/react-todo-list/static/css/main.d0c5b9d6.css.map",
+    "main.84fea068.js.map": "/react-todo-list/static/js/main.84fea068.js.map",
+    "145.df280bed.chunk.js.map": "/react-todo-list/static/js/145.df280bed.chunk.js.map",
+    "728.5c0925f0.chunk.css.map": "/react-todo-list/static/css/728.5c0925f0.chunk.css.map",
+    "728.c667b7f9.chunk.js.map": "/react-todo-list/static/js/728.c667b7f9.chunk.js.map",
+    "110.96da666b.chunk.css.map": "/react-todo-list/static/css/110.96da666b.chunk.css.map",
+    "110.31a896e2.chunk.js.map": "/react-todo-list/static/js/110.31a896e2.chunk.js.map",
+    "764.8014def6.chunk.css.map": "/react-todo-list/static/css/764.8014def6.chunk.css.map",
+    "764.f8608e6c.chunk.js.map": "/react-todo-list/static/js/764.f8608e6c.chunk.js.map",
+    "574.8014def6.chunk.css.map": "/react-todo-list/static/css/574.8014def6.chunk.css.map",
+    "574.7b14026e.chunk.js.map": "/react-todo-list/static/js/574.7b14026e.chunk.js.map",
+    "490.8014def6.chunk.css.map": "/react-todo-list/static/css/490.8014def6.chunk.css.map",
+    "490.bc3adde8.chunk.js.map": "/react-todo-list/static/js/490.bc3adde8.chunk.js.map",
+    "266.b5e14cd9.chunk.js.map": "/react-todo-list/static/js/266.b5e14cd9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1243d052.css",
-    "static/js/main.7f2f4aad.js"
+    "static/css/main.d0c5b9d6.css",
+    "static/js/main.84fea068.js"
   ]
 }
