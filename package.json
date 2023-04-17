@@ -1,7 +1,7 @@
 {
   "name": "todo-list",
   "version": "0.1.0",
-  "homepage": "https://olhachuryk-dev.github.io/react-todo-list",
+  "homepage": "https://olhachuryk-dev.github.io/react-todo-list/",
   "private": true,
   "dependencies": {
     "@hello-pangea/dnd": "^16.0.0",
