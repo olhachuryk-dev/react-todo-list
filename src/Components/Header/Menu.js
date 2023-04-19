@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useAuth } from "../../Context/AuthContext";
+import { useAuthContext } from "../../Context/authContext";
 import Card from "../../UI/Card/Card";
 import "./Menu.css";
 
 const Menu = React.forwardRef(({ menuClicked, setMenuClicked }, ref) => {
   const [error, setError] = useState("");
 
-  const { currentUser, logout } = useAuth();
+  const { currentUser, logout } = useAuthContext();
 
   function handleMenu() {
     setError("");

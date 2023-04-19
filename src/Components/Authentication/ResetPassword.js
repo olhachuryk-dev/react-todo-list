@@ -1,11 +1,13 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
+import { useAuthContext } from "../../Context/authContext";
 import Card from "../../UI/Card/Card";
-import "./LoginForm.css";
+import SubmitButton from "../../UI/Button/SubmitButton";
+import InputContainer from "../../UI/InputContainer/InputContainer";
+import "./Authentication.css";
 
 function ResetPassword() {
-  const { resetPassword } = useAuth();
+  const { resetPassword } = useAuthContext();
   const navigate = useNavigate();
   const emailRef = useRef();
 
@@ -49,7 +51,7 @@ function ResetPassword() {
           {message}
         </div>
         <form className="login-form" onSubmit={handleSubmit}>
-          <div className="field_container">
+          <InputContainer>
             <label htmlFor="email">Email</label>
             <input
               id="email"
@@ -59,12 +61,10 @@ function ResetPassword() {
               className="login-input"
               ref={emailRef}
             />
-          </div>
-          <div className="field_container">
-            <button type="submit" className="login-btn" disabled={loading}>
-              Reset Password
-            </button>
-          </div>
+          </InputContainer>
+          <InputContainer>
+            <SubmitButton type="submit" disabled={loading} name={"Reset Password"}/>
+          </InputContainer>
         </form>
         <p onClick={goBackHandler} className="forgot-password__link">
           Back to Login

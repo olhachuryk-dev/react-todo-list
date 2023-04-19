@@ -1,0 +1,21 @@
+.btn {
+  border-radius: inherit;
+  border: 0;
+  height: calc(3rem - 3px);
+  width: calc(100% - 3px);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--background-color-primary);
+  background-color: var(--background-color-primary);
+  background-image: linear-gradient(
+    to right bottom,
+    hsla(192, 100%, 67%, 0.6),
+    hsla(280, 87%, 65%, 0.6)
+  );
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover{
+  background-color: hsla(var(--background-color-primary), 0.5);
+}

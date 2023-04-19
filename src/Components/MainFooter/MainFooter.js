@@ -2,11 +2,11 @@ import React from "react";
 import ClearAction from "../ClearAction/ClearAction";
 import Filters from "../Filters/Filters";
 import ItemsCounter from "../ItemsCounter/ItemsCounter";
-import { useTodo } from "../../Context/todoContext";
+import { useTodoContext } from "../../Context/todoContext";
 import "./MainFooter.css";
 
 function MainFooter(props) {
-  const todoList = useTodo();
+  const todoList = useTodoContext();
   const activeItems = todoList.filter((todo) => {
     return todo.completed === false;
   });

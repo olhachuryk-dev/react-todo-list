@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
-import { useTodo } from "../../Context/todoContext";
+import { useTodoContext } from "../../Context/todoContext";
 import useTodoCRUD from "../../hooks/useTodoCRUD";
 import { generateTodoObj } from "../Main/Main";
 import "./NewItem.css";
 
 function NewItem() {
   const newTodoActinRef = useRef();
-  const todoList = useTodo();
+  const todoList = useTodoContext();
 
   const { writeNewTodo, error, loading } = useTodoCRUD();
 

@@ -41,21 +41,6 @@
   color: hsl(280, 87%, 65%, 0.5);
 }
 
-.field_container {
-  background-image: linear-gradient(
-    to right bottom,
-    hsla(192, 100%, 67%, 0.5),
-    hsla(280, 87%, 65%, 0.5)
-  );
-  height: 3rem;
-  border-radius: inherit;
-  border: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
 .login-input {
   width: calc(100% - 3px);
   border: 0;
@@ -70,25 +55,6 @@
   padding: 0 5px;
 }
 
-.field_container > label {
-  display: none;
-}
-
-.login-btn {
-  border-radius: inherit;
-  border: 0;
-  height: calc(3rem - 3px);
-  width: calc(100% - 3px);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--background-color-primary);
-  background-color: var(--background-color-primary);
-  background-image: linear-gradient(
-    to right bottom,
-    hsla(192, 100%, 67%, 0.5),
-    hsla(280, 87%, 65%, 0.5)
-  );
-}
 .login-instructions {
   text-align: center;
   width: 100%;

@@ -8,8 +8,8 @@ function TodoList(props) {
   const { updateTodo } = useTodoCRUD();
 
   const handleOnDragEnd = (result) => {
-    if (props.filteredTodoList.length <= 1) return;
-    if (!result.destination) return; //to avoid errors when dropping outside our dropzone
+    if (props.filteredTodoList.length <= 1 || !result.destination) return;
+    //!result.destination - to avoid errors when dropping outside our dropzone
     const newIndex = result.destination.index;
     const prevIndex = newIndex - 1;
     const nextIndex = newIndex + 1;

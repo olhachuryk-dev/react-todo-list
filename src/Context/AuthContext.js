@@ -3,7 +3,7 @@ import { auth } from "../firebase";
 
 const AuthContext = React.createContext();
 
-export function useAuth() {
+export function useAuthContext() {
   return useContext(AuthContext);
 }
 

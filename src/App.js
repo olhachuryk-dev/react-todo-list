@@ -1,16 +1,16 @@
 import "./App.css";
 import React, { Suspense, lazy, useRef, useState } from "react";
-import { AuthProvider } from "./Context/AuthContext";
-import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider } from "./Context/authContext";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Loading from "./UI/Loading/Loading";
 const PrivateRoute = lazy(() => import("./pages/PrivateRoute"));
 const Main = lazy(() => import("./Components/Main/Main"));
 const Footer = lazy(() => import("./Components/Footer/Footer"));
-const SignUpForm = lazy(() => import("./Components/LoginForm/SignUpForm"));
-const LoginForm = lazy(() => import("./Components/LoginForm/LoginForm"));
+const SignUpForm = lazy(() => import("./Components/Authentication/SignUpForm"));
+const LoginForm = lazy(() => import("./Components/Authentication/LoginForm"));
 const ResetPassword = lazy(() =>
-  import("./Components/LoginForm/ResetPassword")
+  import("./Components/Authentication/ResetPassword")
 );
 
 function App() {
@@ -59,10 +59,7 @@ function App() {
               />
               <Route path="signup" element={<SignUpForm />} />
               <Route path="login" element={<LoginForm />} />
-              <Route
-                path="forgot-password"
-                element={<ResetPassword />}
-              />
+              <Route path="forgot-password" element={<ResetPassword />} />
             </Routes>
           </Suspense>
         </AuthProvider>

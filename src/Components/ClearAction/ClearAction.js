@@ -1,10 +1,10 @@
 import React from "react";
-import { useTodo } from "../../Context/todoContext";
+import { useTodoContext } from "../../Context/todoContext";
 import useTodoCRUD from "../../hooks/useTodoCRUD";
 import "./ClearAction.css";
 
 function ClearAction() {
-  const todoList = useTodo();
+  const todoList = useTodoContext();
   const { deleteTodo } = useTodoCRUD();
   const completedTodo = todoList.filter((todo) => todo.completed === true);
 
