@@ -72,18 +72,31 @@ function App() {
         className="scam-alert-button"
         onClick={() =>
           window.openScamAlertWidget("https://scam.cbeng.io/widget", {
-            theme: {
-              "bg-brand": "hsl(280, 87%, 65%)",
-              "bg-secondary": "hsl(235, 24%, 19%);",
-              "bg-primary": "hsl(235, 21%, 11%)",
-              "bg-tertiary": "hsl(237, 14%, 26%)",
-              border: "hsl(237, 14%, 26%)",
-              "text-primary": "hsl(0, 0%, 66%)",
-              "text-secondary": "hsl(234, 11%, 52%)",
-              "text-tertiary": "hsl(234, 11%, 52%)",
-              "error-text": "hsl(0, 53%, 58%)",
-              "bg-input": "hsl(235, 24%, 19%)",
-            },
+            theme: isLightMode
+              ? {
+                  "bg-brand": "hsl(280, 87%, 65%)",
+                  "bg-secondary": "#b5b5b5",
+                  "bg-primary": "#ffffff",
+                  "bg-tertiary": "#edceec",
+                  border: "#b5b5b5",
+                  "text-primary": "#000000",
+                  "text-secondary": "#000000",
+                  "text-tertiary": "#000000",
+                  "error-text": "red",
+                  "bg-input": "#ffffff",
+                }
+              : {
+                  "bg-brand": "hsl(280, 87%, 65%)",
+                  "bg-secondary": "hsl(235, 24%, 19%);",
+                  "bg-primary": "hsl(235, 21%, 11%)",
+                  "bg-tertiary": "hsl(237, 14%, 26%)",
+                  border: "hsl(237, 14%, 26%)",
+                  "text-primary": "hsl(0, 0%, 66%)",
+                  "text-secondary": "hsl(234, 11%, 52%)",
+                  "text-tertiary": "hsl(234, 11%, 52%)",
+                  "error-text": "hsl(0, 53%, 58%)",
+                  "bg-input": "hsl(235, 24%, 19%)",
+                },
           })
         }
       >

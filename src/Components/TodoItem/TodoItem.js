@@ -1,8 +1,9 @@
 import React from "react";
 import { Draggable } from "@hello-pangea/dnd";
 import CompleteTodo from "../CompleteTodo/CompleteTodo";
-import "./TodoItem.css";
 import useTodoCRUD from "../../hooks/useTodoCRUD";
+import iconCross from "../assets/icon-cross.svg";
+import "./TodoItem.css";
 
 function TodoItem(props) {
   const { deleteTodo } = useTodoCRUD();
@@ -27,7 +28,7 @@ function TodoItem(props) {
           <p>{action}</p>
           <img
             alt="delete"
-            src="../assets/icon-cross.svg"
+            src={iconCross}
             className="todo-delete"
             onClick={deleteTodoHandler}
           />

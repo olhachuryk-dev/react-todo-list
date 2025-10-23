@@ -57,3 +57,11 @@
   height: 25px;
   object-fit: contain;
 }
+body:has(.dark-mode_theme) {
+  .scam-alert-button {
+    background-color: white;
+  }
+  .scam-alert-button img {
+    filter: invert(1);
+  }
+}
