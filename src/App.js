@@ -2,6 +2,7 @@ import "./App.css";
 import React, { Suspense, lazy, useRef, useState } from "react";
 import { AuthProvider } from "./Context/AuthContext.js";
 import { HashRouter, Routes, Route } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Header from "./Components/Header/Header";
 import LanguageSelector from "./Components/LanguageSelector/LanguageSelector";
 import Loading from "./UI/Loading/Loading";
@@ -16,6 +17,7 @@ const ResetPassword = lazy(() =>
 );
 
 function App() {
+  const { i18n } = useTranslation();
   const [menuClicked, setMenuClicked] = useState(false);
   const menuElementRef = useRef({});
   const [isLightMode, setIsLightMode] = useState(
@@ -101,6 +103,7 @@ function App() {
                   "error-text": "hsl(0, 53%, 58%)",
                   "bg-input": "hsl(235, 24%, 19%)",
                 },
+            lang: i18n.language,
           })
         }
       >
