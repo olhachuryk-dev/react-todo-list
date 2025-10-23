@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 function ItemsCounter(props) {
-  return <p>{`${props.amount} items left`}</p>;
+  const { t } = useTranslation();
+  return <p data-testid="items-counter">{t('todo.itemsLeft', { count: props.amount })}</p>;
 }
 
 export default ItemsCounter;

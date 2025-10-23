@@ -1,10 +1,12 @@
 import React, { useRef } from "react";
+import { useTranslation } from 'react-i18next';
 import { useTodoContext } from "../../Context/todoContext";
 import useTodoCRUD from "../../hooks/useTodoCRUD";
 import { generateTodoObj } from "../Main/Main";
 import "./NewItem.css";
 
 function NewItem() {
+  const { t } = useTranslation();
   const newTodoActinRef = useRef();
   const todoList = useTodoContext();
 
@@ -51,7 +53,8 @@ function NewItem() {
         className='new-todo_input'
         autoFocus
         ref={newTodoActinRef}
-        placeholder="Start typing here"
+        placeholder={t('todo.addTodo')}
+        data-testid="new-todo-input"
         onKeyPress={(event) => {
           if (event.key === "Enter") {
             addTodo();

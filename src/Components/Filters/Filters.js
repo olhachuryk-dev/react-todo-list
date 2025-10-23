@@ -1,30 +1,37 @@
 import React, { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import "./Filters.css";
 
-const filters = [
-  {
-    name: "All",
-    is_completed: null,
-  },
-  {
-    name: "Active",
-    is_completed: false,
-  },
-  {
-    name: "Completed",
-    is_completed: true,
-  },
-];
 function Filters(props) {
-  const [filteredBy, setFilteredBy] = useState(filters[0].name);
+  const { t } = useTranslation();
+  
+  const filters = [
+    {
+      name: t('todo.all'),
+      key: 'all',
+      is_completed: null,
+    },
+    {
+      name: t('todo.active'),
+      key: 'active',
+      is_completed: false,
+    },
+    {
+      name: t('todo.completed'),
+      key: 'completed',
+      is_completed: true,
+    },
+  ];
+  
+  const [filteredBy, setFilteredBy] = useState(filters[0].key);
+  
   const filterTodoList = (event) => {
-    const newFilter = event.target.textContent;
-    const isCompleted = filters.find((filter) => filter.name === newFilter)[
-      "is_completed"
-    ];
-    setFilteredBy(newFilter);
-    props.callFilterByStatus(isCompleted);
+    const newFilterKey = event.target.dataset.filterKey;
+    const filter = filters.find((f) => f.key === newFilterKey);
+    setFilteredBy(newFilterKey);
+    props.callFilterByStatus(filter.is_completed);
   };
+  
   return (
     <ul className="filter-list">
       {filters.map((filter, index) => {
@@ -32,9 +39,11 @@ function Filters(props) {
           <li
             key={index}
             onClick={filterTodoList}
-            className={filteredBy === filter["name"] ? "highlight" : ""}
+            data-filter-key={filter.key}
+            className={filteredBy === filter.key ? "highlight" : ""}
+            data-testid={`filter-${filter.key}`}
           >
-            {filter["name"]}
+            {filter.name}
           </li>
         );
       })}

@@ -33,6 +33,36 @@
   background-repeat: no-repeat;
   background-position: top center;
   background-size: max(100%, 885px) min(100%, 250px);
+  position: relative;
+}
+
+.language-selector-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .language-selector-container {
+    top: 15px;
+    right: 15px;
+  }
+
+  .app-container {
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 375px) {
+  .language-selector-container {
+    top: 10px;
+    right: 10px;
+  }
+
+  .app-container {
+    padding-top: 70px;
+  }
 }
 .scam-alert-button {
   position: fixed;

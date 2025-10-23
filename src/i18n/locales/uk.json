@@ -1,0 +1,50 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "Змінити тему",
+        "menu": "Меню",
+        "logout": "Вийти"
+    },
+    "auth": {
+        "login": "Увійти",
+        "signup": "Зареєструватися",
+        "email": "Електронна пошта",
+        "password": "Пароль",
+        "confirmPassword": "Підтвердити пароль",
+        "forgotPassword": "Забули пароль?",
+        "resetPassword": "Скинути пароль",
+        "noAccount": "Немає облікового запису?",
+        "hasAccount": "Вже є обліковий запис?",
+        "signUpHere": "Зареєструватися тут",
+        "loginHere": "Увійти тут",
+        "resetPasswordSent": "Лист для скидання пароля надіслано!",
+        "invalidCredentials": "Невірна електронна пошта або пароль",
+        "emailAlreadyInUse": "Електронна пошта вже використовується",
+        "weakPassword": "Пароль повинен містити принаймні 6 символів",
+        "passwordsDoNotMatch": "Паролі не співпадають"
+    },
+    "todo": {
+        "addTodo": "Додати нову справу...",
+        "all": "Всі",
+        "active": "Активні",
+        "completed": "Виконані",
+        "clearCompleted": "Очистити виконані",
+        "itemsLeft": "{{count}} справа залишилася",
+        "itemsLeft_plural": "{{count}} справ залишилося",
+        "dragToReorder": "Перетягніть для зміни порядку списку"
+    },
+    "language": {
+        "select": "Вибрати мову",
+        "english": "English",
+        "ukrainian": "Українська"
+    },
+    "common": {
+        "loading": "Завантаження...",
+        "error": "Помилка",
+        "success": "Успішно",
+        "cancel": "Скасувати",
+        "save": "Зберегти",
+        "delete": "Видалити",
+        "edit": "Редагувати"
+    }
+}

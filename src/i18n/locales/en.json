@@ -1,0 +1,50 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "Toggle theme",
+        "menu": "Menu",
+        "logout": "Logout"
+    },
+    "auth": {
+        "login": "Login",
+        "signup": "Sign Up",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "forgotPassword": "Forgot Password?",
+        "resetPassword": "Reset Password",
+        "noAccount": "Don't have an account?",
+        "hasAccount": "Already have an account?",
+        "signUpHere": "Sign up here",
+        "loginHere": "Login here",
+        "resetPasswordSent": "Password reset email sent!",
+        "invalidCredentials": "Invalid email or password",
+        "emailAlreadyInUse": "Email already in use",
+        "weakPassword": "Password should be at least 6 characters",
+        "passwordsDoNotMatch": "Passwords do not match"
+    },
+    "todo": {
+        "addTodo": "Add a new todo...",
+        "all": "All",
+        "active": "Active",
+        "completed": "Completed",
+        "clearCompleted": "Clear completed",
+        "itemsLeft": "{{count}} item left",
+        "itemsLeft_plural": "{{count}} items left",
+        "dragToReorder": "Drag and drop to reorder list"
+    },
+    "language": {
+        "select": "Select Language",
+        "english": "English",
+        "ukrainian": "Українська"
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success",
+        "cancel": "Cancel",
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit"
+    }
+}

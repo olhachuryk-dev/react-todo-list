@@ -3,6 +3,7 @@ import React, { Suspense, lazy, useRef, useState } from "react";
 import { AuthProvider } from "./Context/AuthContext.js";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
+import LanguageSelector from "./Components/LanguageSelector/LanguageSelector";
 import Loading from "./UI/Loading/Loading";
 import iconCrystal from "./Components/assets/icon-crystal.svg";
 const PrivateRoute = lazy(() => import("./pages/PrivateRoute"));
@@ -38,6 +39,9 @@ function App() {
         isLightMode ? "light-mode_theme" : "dark-mode_theme"
       }`}
     >
+      <div className="language-selector-container">
+        <LanguageSelector />
+      </div>
       <HashRouter>
         <AuthProvider>
           <Header

@@ -1,0 +1,106 @@
+.language-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.language-selector-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: var(--background-color-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-color-primary);
+  font-size: 14px;
+  font-weight: 400;
+  min-width: 120px;
+}
+
+.language-selector-button:hover {
+  background-color: var(--background-color-secondary);
+  border-color: var(--text-color-primary);
+}
+
+.language-selector-button:focus {
+  outline: 2px solid var(--text-color-primary);
+  outline-offset: 2px;
+}
+
+.language-flag {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.language-name {
+  flex: 1;
+  text-align: left;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  transition: transform 0.2s ease;
+  color: var(--text-color-secondary);
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--background-color-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px var(--box-shadow-color);
+  z-index: 1000;
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: var(--text-color-primary);
+  font-size: 14px;
+  text-align: left;
+}
+
+.language-option:hover {
+  background-color: var(--background-color-secondary);
+}
+
+.language-option.active {
+  background-color: var(--background-color-secondary);
+  font-weight: 500;
+}
+
+.checkmark {
+  margin-left: auto;
+  color: var(--text-color-primary);
+  font-weight: bold;
+}
+
+/* Dark mode specific styles */
+body:has(.dark-mode_theme) .language-selector-button {
+  background-color: var(--background-color-primary);
+  border-color: var(--border-color);
+}
+
+body:has(.dark-mode_theme) .language-dropdown {
+  background-color: var(--background-color-primary);
+  border-color: var(--border-color);
+  box-shadow: 0 4px 12px var(--box-shadow-color);
+}
