@@ -26,4 +26,3 @@ yarn-error.log*
 src/firebase.js
 
 .vscode
-*.lock
