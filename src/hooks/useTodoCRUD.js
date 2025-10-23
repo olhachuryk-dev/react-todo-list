@@ -1,16 +1,24 @@
-import { child, onValue, push, ref, remove, set, update } from "firebase/database";
+import {
+  child,
+  onValue,
+  push,
+  ref,
+  remove,
+  set,
+  update,
+} from "firebase/database";
 import { useState } from "react";
-import { useAuthContext } from "../Context/authContext";
+import { useAuthContext } from "../Context/AuthContext";
 import database from "../firebase";
- 
+
 export default function useTodoCRUD() {
   const [todoList, setTodoList] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const { currentUser } =useAuthContext();
+  const { currentUser } = useAuthContext();
 
   function transformTodoList(data) {
-    if(!data) return [];
+    if (!data) return [];
     const todoData = Object.entries(data).map((todoItem) => {
       return { ...todoItem[1], key: todoItem[0] };
     });
@@ -32,9 +40,9 @@ export default function useTodoCRUD() {
       },
       (error) => setError(error.message)
     );
-  };
+  }
 
-  function updateTodo( todo) {
+  function updateTodo(todo) {
     setLoading(true);
     setError("");
     //https://firebase.google.com/docs/database/web/read-and-write#basic_write
@@ -60,7 +68,9 @@ export default function useTodoCRUD() {
     setLoading(true);
     setError("");
     // Get a key for a new Post.
-    const newTodoKey = push(child(ref(database), `users/${currentUser.uid}/todos`)).key;
+    const newTodoKey = push(
+      child(ref(database), `users/${currentUser.uid}/todos`)
+    ).key;
 
     // Write the new post's data simultaneously in the posts list and the user's post list.
     const updates = {};

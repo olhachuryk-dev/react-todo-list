@@ -6,7 +6,7 @@ function CompleteTodo({ todo }) {
   const { updateTodo } = useTodoCRUD();
 
   const checkMark = todo.completed && (
-    <img src="./images/icon-check.svg" alt="Completed" />
+    <img src="../assets/icon-check.svg" alt="Completed" />
   );
 
   function completeTodoHandler() {

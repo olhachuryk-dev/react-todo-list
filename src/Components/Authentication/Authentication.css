@@ -71,9 +71,9 @@
   color: hsl(219, 79%, 66%);
 }
 
-.create-account__link{
+.create-account__link {
   text-decoration: none;
-  color: hsl(231, 84%, 49%)
+  color: hsl(231, 84%, 49%);
 }
 
 .forgot-password__link:hover,

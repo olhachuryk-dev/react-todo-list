@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAuthContext } from "../../Context/authContext";
+import { useAuthContext } from "../../Context/AuthContext";
 import Card from "../../UI/Card/Card";
 import "./Menu.css";
 

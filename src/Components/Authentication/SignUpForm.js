@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../Context/authContext";
+import { useAuthContext } from "../../Context/AuthContext.js";
 import Card from "../../UI/Card/Card";
 import SubmitButton from "../../UI/Button/SubmitButton";
 import InputContainer from "../../UI/InputContainer/InputContainer";

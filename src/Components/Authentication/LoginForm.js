@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../Context/authContext";
+import { useAuthContext } from "../../Context/AuthContext.js";
 import Card from "../../UI/Card/Card";
 import InputContainer from "../../UI/InputContainer/InputContainer";
 import SubmitButton from "../../UI/Button/SubmitButton";
@@ -59,7 +59,7 @@ function LoginForm() {
             />
           </InputContainer>
           <InputContainer>
-            <SubmitButton disabled={loading} name={"Log In"}/>
+            <SubmitButton disabled={loading} name={"Log In"} />
           </InputContainer>
         </form>
         <Link to="/forgot-password" className="forgot-password__link">

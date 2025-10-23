@@ -1,27 +1,34 @@
 import React from "react";
 import Menu from "./Menu";
+import iconMoon from "../assets/icon-moon.svg";
+import iconSun from "../assets/icon-sun.svg";
 import "./Header.css";
 
-const Header = React.forwardRef(({ menuClicked, setMenuClicked, toggleTheme, isLightMode }, ref) => {
-  const onClickThemeHandler = () => {toggleTheme()};
-  const lightModeIcon = isLightMode ? "icon-moon.svg" : "icon-sun.svg";
-  return (
-    <header>
-      <div className="menu-logo_container">
-        <Menu
-          menuClicked={menuClicked}
-          setMenuClicked={setMenuClicked}
-          ref={ref}
+const Header = React.forwardRef(
+  ({ menuClicked, setMenuClicked, toggleTheme, isLightMode }, ref) => {
+    const onClickThemeHandler = () => {
+      toggleTheme();
+    };
+    const themeModeIcon = isLightMode ? iconMoon : iconSun;
+    return (
+      <header>
+        <div className="menu-logo_container">
+          <Menu
+            menuClicked={menuClicked}
+            setMenuClicked={setMenuClicked}
+            ref={ref}
+          />
+          <h1>T O D O</h1>
+        </div>
+        <img
+          src={themeModeIcon}
+          alt="light-mode"
+          onClick={onClickThemeHandler}
+          type="button"
         />
-        <h1>T O D O</h1>
-      </div>
-      <img
-        src={`./images/${lightModeIcon}`}
-        alt="light-mode"
-        onClick={onClickThemeHandler}
-      />
-    </header>
-  );
-});
+      </header>
+    );
+  }
+);
 
 export default Header;

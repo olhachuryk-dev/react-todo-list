@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../Context/authContext";
+import { useAuthContext } from "../../Context/AuthContext.js";
 import Card from "../../UI/Card/Card";
 import SubmitButton from "../../UI/Button/SubmitButton";
 import InputContainer from "../../UI/InputContainer/InputContainer";
@@ -63,7 +63,11 @@ function ResetPassword() {
             />
           </InputContainer>
           <InputContainer>
-            <SubmitButton type="submit" disabled={loading} name={"Reset Password"}/>
+            <SubmitButton
+              type="submit"
+              disabled={loading}
+              name={"Reset Password"}
+            />
           </InputContainer>
         </form>
         <p onClick={goBackHandler} className="forgot-password__link">

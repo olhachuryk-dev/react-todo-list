@@ -1,9 +1,10 @@
 import "./App.css";
 import React, { Suspense, lazy, useRef, useState } from "react";
-import { AuthProvider } from "./Context/authContext";
+import { AuthProvider } from "./Context/AuthContext.js";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Loading from "./UI/Loading/Loading";
+import iconCrystal from "./Components/assets/icon-crystal.svg";
 const PrivateRoute = lazy(() => import("./pages/PrivateRoute"));
 const Main = lazy(() => import("./Components/Main/Main"));
 const Footer = lazy(() => import("./Components/Footer/Footer"));
@@ -65,6 +66,29 @@ function App() {
         </AuthProvider>
       </HashRouter>
       <Footer />
+      <button
+        type="button"
+        title="Report Scam"
+        className="scam-alert-button"
+        onClick={() =>
+          window.openScamAlertWidget("https://scam.cbeng.io/widget", {
+            theme: {
+              "bg-brand": "hsl(280, 87%, 65%)",
+              "bg-secondary": "hsl(235, 24%, 19%);",
+              "bg-primary": "hsl(235, 21%, 11%)",
+              "bg-tertiary": "hsl(237, 14%, 26%)",
+              border: "hsl(237, 14%, 26%)",
+              "text-primary": "hsl(0, 0%, 66%)",
+              "text-secondary": "hsl(234, 11%, 52%)",
+              "text-tertiary": "hsl(234, 11%, 52%)",
+              "error-text": "hsl(0, 53%, 58%)",
+              "bg-input": "hsl(235, 24%, 19%)",
+            },
+          })
+        }
+      >
+        <img src={iconCrystal} alt="scam-alert" />
+      </button>
     </div>
   );
 }

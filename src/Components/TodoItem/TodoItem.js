@@ -10,7 +10,7 @@ function TodoItem(props) {
   const action = todo.completed ? <s>{todo.action}</s> : todo.action;
 
   const deleteTodoHandler = () => {
-    deleteTodo(props.todo)
+    deleteTodo(props.todo);
   };
 
   return (
@@ -18,7 +18,7 @@ function TodoItem(props) {
       {(provided) => (
         <li
           id={todo.key.toString()}
-          className='todo-item'
+          className="todo-item"
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
@@ -27,7 +27,7 @@ function TodoItem(props) {
           <p>{action}</p>
           <img
             alt="delete"
-            src="./images/icon-cross.svg"
+            src="../assets/icon-cross.svg"
             className="todo-delete"
             onClick={deleteTodoHandler}
           />
