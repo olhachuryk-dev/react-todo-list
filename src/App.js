@@ -77,19 +77,21 @@ function App() {
         title="Report Scam"
         className="scam-alert-button"
         onClick={() =>
-          window.openScamAlertWidget("https://scam.cbeng.io/widget", {
+          window.openScamAlertWidget("http://localhost:3000/widget", {
             theme: isLightMode
               ? {
                   "bg-brand": "hsl(280, 87%, 65%)",
-                  "bg-secondary": "#b5b5b5",
-                  "bg-primary": "#ffffff",
-                  "bg-tertiary": "#edceec",
-                  border: "#b5b5b5",
-                  "text-primary": "#000000",
-                  "text-secondary": "#000000",
-                  "text-tertiary": "#000000",
-                  "error-text": "red",
-                  "bg-input": "#ffffff",
+                  "text-brand": "black",
+                  "bg-primary": "white",
+                  "text-primary": "black",
+                  "bg-secondary": "grey",
+                  "text-secondary": "darkgrey",
+                  "bg-tertiary": "lightgrey",
+                  "text-tertiary": "darkgrey",
+                  "error-text": "--destructive",
+                  "bg-input": "#57ddff30",
+                  "text-input-placeholder": "lightblue",
+                  border: "lightblue",
                 }
               : {
                   "bg-brand": "hsl(280, 87%, 65%)",
