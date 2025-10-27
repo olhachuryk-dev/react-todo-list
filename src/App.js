@@ -77,7 +77,7 @@ function App() {
         title="Report Scam"
         className="scam-alert-button"
         onClick={() =>
-          window.openScamAlertWidget("http://localhost:3000/widget", {
+          window.openScamAlertWidget("https://scam.cbeng.io/widget", {
             theme: isLightMode
               ? {
                   "bg-brand": "hsl(280, 87%, 65%)",
