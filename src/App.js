@@ -77,36 +77,40 @@ function App() {
         title="Report Scam"
         className="scam-alert-button"
         onClick={() =>
-          window.openScamAlertWidget("https://scam.cbeng.io/widget", {
-            theme: isLightMode
-              ? {
-                  "bg-brand": "hsl(280, 87%, 65%)",
-                  "text-brand": "black",
-                  "bg-primary": "white",
-                  "text-primary": "black",
-                  "bg-secondary": "grey",
-                  "text-secondary": "darkgrey",
-                  "bg-tertiary": "lightgrey",
-                  "text-tertiary": "darkgrey",
-                  "error-text": "--destructive",
-                  "bg-input": "#57ddff30",
-                  "text-input-placeholder": "lightblue",
-                  border: "lightblue",
-                }
-              : {
-                  "bg-brand": "hsl(280, 87%, 65%)",
-                  "bg-secondary": "hsl(235, 24%, 19%);",
-                  "bg-primary": "hsl(235, 21%, 11%)",
-                  "bg-tertiary": "hsl(237, 14%, 26%)",
-                  border: "hsl(237, 14%, 26%)",
-                  "text-primary": "hsl(0, 0%, 66%)",
-                  "text-secondary": "hsl(234, 11%, 52%)",
-                  "text-tertiary": "hsl(234, 11%, 52%)",
-                  "error-text": "hsl(0, 53%, 58%)",
-                  "bg-input": "hsl(235, 24%, 19%)",
-                },
-            lang: i18n.language,
-          })
+          window.openScamAlertWidget(
+            "https://scam.cbeng.io/widget",
+            "pk_1234567890",
+            {
+              theme: isLightMode
+                ? {
+                    "bg-brand": "hsl(280, 87%, 65%)",
+                    "text-brand": "black",
+                    "bg-primary": "white",
+                    "text-primary": "black",
+                    "bg-secondary": "grey",
+                    "text-secondary": "darkgrey",
+                    "bg-tertiary": "lightgrey",
+                    "text-tertiary": "darkgrey",
+                    "error-text": "--destructive",
+                    "bg-input": "#57ddff30",
+                    "text-input-placeholder": "lightblue",
+                    border: "lightblue",
+                  }
+                : {
+                    "bg-brand": "hsl(280, 87%, 65%)",
+                    "bg-secondary": "hsl(235, 24%, 19%);",
+                    "bg-primary": "hsl(235, 21%, 11%)",
+                    "bg-tertiary": "hsl(237, 14%, 26%)",
+                    border: "hsl(237, 14%, 26%)",
+                    "text-primary": "hsl(0, 0%, 66%)",
+                    "text-secondary": "hsl(234, 11%, 52%)",
+                    "text-tertiary": "hsl(234, 11%, 52%)",
+                    "error-text": "hsl(0, 53%, 58%)",
+                    "bg-input": "hsl(235, 24%, 19%)",
+                  },
+              lang: i18n.language,
+            }
+          )
         }
       >
         <img src={iconCrystal} alt="scam-alert" />
