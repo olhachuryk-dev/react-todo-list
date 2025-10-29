@@ -83,18 +83,18 @@ function App() {
             {
               theme: isLightMode
                 ? {
-                    "bg-brand": "hsl(280, 87%, 65%)",
+                    "bg-brand": "hsl(280, 61.60%, 48.00%)",
                     "text-brand": "black",
                     "bg-primary": "white",
                     "text-primary": "black",
-                    "bg-secondary": "grey",
-                    "text-secondary": "darkgrey",
-                    "bg-tertiary": "lightgrey",
-                    "text-tertiary": "darkgrey",
-                    "error-text": "--destructive",
-                    "bg-input": "#57ddff30",
-                    "text-input-placeholder": "lightblue",
-                    border: "lightblue",
+                    "bg-secondary": "hsl(0, 0%, 66%)",
+                    "text-secondary": "hsl(237, 14%, 26%)",
+                    "bg-tertiary": "hsl(0, 0.90%, 55.70%)",
+                    "text-tertiary": "hsl(237, 14%, 26%)",
+                    "error-text": "hsl(0, 94.40%, 34.70%)",
+                    "bg-input": "hsl(280, 82.00%, 80.40%)",
+                    "text-input-placeholder": "hsl(237, 14%, 26%)",
+                    border: "hsl(280, 49.40%, 47.30%)",
                   }
                 : {
                     "bg-brand": "hsl(280, 87%, 65%)",
