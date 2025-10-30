@@ -1,0 +1,50 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "テーマを切り替え",
+        "menu": "メニュー",
+        "logout": "ログアウト"
+    },
+    "auth": {
+        "login": "ログイン",
+        "signup": "新規登録",
+        "email": "メールアドレス",
+        "password": "パスワード",
+        "confirmPassword": "パスワード確認",
+        "forgotPassword": "パスワードをお忘れですか？",
+        "resetPassword": "パスワードをリセット",
+        "noAccount": "アカウントをお持ちでないですか？",
+        "hasAccount": "すでにアカウントをお持ちですか？",
+        "signUpHere": "こちらで登録",
+        "loginHere": "こちらでログイン",
+        "resetPasswordSent": "パスワード再設定メールを送信しました！",
+        "invalidCredentials": "メールアドレスまたはパスワードが無効です",
+        "emailAlreadyInUse": "このメールは既に使用されています",
+        "weakPassword": "パスワードは6文字以上で入力してください",
+        "passwordsDoNotMatch": "パスワードが一致しません"
+    },
+    "todo": {
+        "addTodo": "新しいタスクを追加...",
+        "all": "すべて",
+        "active": "進行中",
+        "completed": "完了",
+        "clearCompleted": "完了を削除",
+        "itemsLeft": "残り {{count}} 件",
+        "itemsLeft_plural": "残り {{count}} 件",
+        "dragToReorder": "並べ替えるにはドラッグ＆ドロップ"
+    },
+    "language": {
+        "select": "言語を選択",
+        "english": "英語",
+        "ukrainian": "ウクライナ語"
+    },
+    "common": {
+        "loading": "読み込み中...",
+        "error": "エラー",
+        "success": "成功",
+        "cancel": "キャンセル",
+        "save": "保存",
+        "delete": "削除",
+        "edit": "編集"
+    }
+}

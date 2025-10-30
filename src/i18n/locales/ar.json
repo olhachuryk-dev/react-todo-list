@@ -1,0 +1,50 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "تبديل السمة",
+        "menu": "القائمة",
+        "logout": "تسجيل الخروج"
+    },
+    "auth": {
+        "login": "تسجيل الدخول",
+        "signup": "إنشاء حساب",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "confirmPassword": "تأكيد كلمة المرور",
+        "forgotPassword": "هل نسيت كلمة المرور؟",
+        "resetPassword": "إعادة تعيين كلمة المرور",
+        "noAccount": "ليس لديك حساب؟",
+        "hasAccount": "لديك حساب بالفعل؟",
+        "signUpHere": "سجل هنا",
+        "loginHere": "سجّل الدخول هنا",
+        "resetPasswordSent": "تم إرسال بريد إعادة التعيين!",
+        "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+        "emailAlreadyInUse": "البريد الإلكتروني مستخدم بالفعل",
+        "weakPassword": "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل",
+        "passwordsDoNotMatch": "كلمتا المرور غير متطابقتين"
+    },
+    "todo": {
+        "addTodo": "أضف مهمة جديدة...",
+        "all": "الكل",
+        "active": "نشطة",
+        "completed": "مكتملة",
+        "clearCompleted": "مسح المكتمل",
+        "itemsLeft": "{{count}} عنصر متبقٍ",
+        "itemsLeft_plural": "{{count}} عناصر متبقية",
+        "dragToReorder": "اسحب وأفلت لإعادة الترتيب"
+    },
+    "language": {
+        "select": "اختر اللغة",
+        "english": "الإنجليزية",
+        "ukrainian": "الأوكرانية"
+    },
+    "common": {
+        "loading": "جارِ التحميل...",
+        "error": "خطأ",
+        "success": "نجاح",
+        "cancel": "إلغاء",
+        "save": "حفظ",
+        "delete": "حذف",
+        "edit": "تحرير"
+    }
+}

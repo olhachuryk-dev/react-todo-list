@@ -1,0 +1,51 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "Chuyển đổi giao diện",
+        "menu": "Menu",
+        "logout": "Đăng xuất"
+    },
+    "auth": {
+        "login": "Đăng nhập",
+        "signup": "Đăng ký",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "confirmPassword": "Xác nhận mật khẩu",
+        "forgotPassword": "Quên mật khẩu?",
+        "resetPassword": "Đặt lại mật khẩu",
+        "noAccount": "Chưa có tài khoản?",
+        "hasAccount": "Đã có tài khoản?",
+        "signUpHere": "Đăng ký tại đây",
+        "loginHere": "Đăng nhập tại đây",
+        "resetPasswordSent": "Email đặt lại mật khẩu đã được gửi!",
+        "invalidCredentials": "Email hoặc mật khẩu không hợp lệ",
+        "emailAlreadyInUse": "Email đã được sử dụng",
+        "weakPassword": "Mật khẩu phải có ít nhất 6 ký tự",
+        "passwordsDoNotMatch": "Mật khẩu không khớp"
+    },
+    "todo": {
+        "addTodo": "Thêm công việc mới...",
+        "all": "Tất cả",
+        "active": "Đang hoạt động",
+        "completed": "Hoàn thành",
+        "clearCompleted": "Xóa mục đã hoàn thành",
+        "itemsLeft": "Còn {{count}} mục",
+        "itemsLeft_plural": "Còn {{count}} mục",
+        "dragToReorder": "Kéo thả để sắp xếp lại danh sách"
+    },
+    "language": {
+        "select": "Chọn ngôn ngữ",
+        "english": "Tiếng Anh",
+        "ukrainian": "Tiếng Ukraina"
+    },
+    "common": {
+        "loading": "Đang tải...",
+        "error": "Lỗi",
+        "success": "Thành công",
+        "cancel": "Hủy",
+        "save": "Lưu",
+        "delete": "Xóa",
+        "edit": "Chỉnh sửa"
+    }
+}
+

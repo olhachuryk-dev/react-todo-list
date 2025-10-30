@@ -1,0 +1,51 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "Alternar tema",
+        "menu": "Menu",
+        "logout": "Sair"
+    },
+    "auth": {
+        "login": "Entrar",
+        "signup": "Cadastrar-se",
+        "email": "E-mail",
+        "password": "Senha",
+        "confirmPassword": "Confirmar senha",
+        "forgotPassword": "Esqueceu a senha?",
+        "resetPassword": "Redefinir senha",
+        "noAccount": "Não tem uma conta?",
+        "hasAccount": "Já tem uma conta?",
+        "signUpHere": "Cadastre-se aqui",
+        "loginHere": "Entre aqui",
+        "resetPasswordSent": "E-mail de redefinição enviado!",
+        "invalidCredentials": "E-mail ou senha inválidos",
+        "emailAlreadyInUse": "E-mail já está em uso",
+        "weakPassword": "A senha deve ter pelo menos 6 caracteres",
+        "passwordsDoNotMatch": "As senhas não coincidem"
+    },
+    "todo": {
+        "addTodo": "Adicione uma nova tarefa...",
+        "all": "Todas",
+        "active": "Ativas",
+        "completed": "Concluídas",
+        "clearCompleted": "Limpar concluídas",
+        "itemsLeft": "{{count}} item restante",
+        "itemsLeft_plural": "{{count}} itens restantes",
+        "dragToReorder": "Arraste e solte para reordenar"
+    },
+    "language": {
+        "select": "Selecionar idioma",
+        "english": "Inglês",
+        "ukrainian": "Ucraniano"
+    },
+    "common": {
+        "loading": "Carregando...",
+        "error": "Erro",
+        "success": "Sucesso",
+        "cancel": "Cancelar",
+        "save": "Salvar",
+        "delete": "Excluir",
+        "edit": "Editar"
+    }
+}
+

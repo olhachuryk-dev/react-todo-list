@@ -1,0 +1,50 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "切换主题",
+        "menu": "菜单",
+        "logout": "退出登录"
+    },
+    "auth": {
+        "login": "登录",
+        "signup": "注册",
+        "email": "邮箱",
+        "password": "密码",
+        "confirmPassword": "确认密码",
+        "forgotPassword": "忘记密码？",
+        "resetPassword": "重置密码",
+        "noAccount": "没有账号？",
+        "hasAccount": "已有账号？",
+        "signUpHere": "在此注册",
+        "loginHere": "在此登录",
+        "resetPasswordSent": "重置密码邮件已发送！",
+        "invalidCredentials": "邮箱或密码无效",
+        "emailAlreadyInUse": "邮箱已被使用",
+        "weakPassword": "密码至少需要 6 个字符",
+        "passwordsDoNotMatch": "两次密码不一致"
+    },
+    "todo": {
+        "addTodo": "添加新待办...",
+        "all": "全部",
+        "active": "未完成",
+        "completed": "已完成",
+        "clearCompleted": "清除已完成",
+        "itemsLeft": "剩余 {{count}} 个项目",
+        "itemsLeft_plural": "剩余 {{count}} 个项目",
+        "dragToReorder": "拖拽以重新排序"
+    },
+    "language": {
+        "select": "选择语言",
+        "english": "英语",
+        "ukrainian": "乌克兰语"
+    },
+    "common": {
+        "loading": "加载中...",
+        "error": "错误",
+        "success": "成功",
+        "cancel": "取消",
+        "save": "保存",
+        "delete": "删除",
+        "edit": "编辑"
+    }
+}

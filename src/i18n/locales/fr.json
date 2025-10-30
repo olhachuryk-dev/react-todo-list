@@ -1,0 +1,50 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "Changer le thème",
+        "menu": "Menu",
+        "logout": "Déconnexion"
+    },
+    "auth": {
+        "login": "Connexion",
+        "signup": "S'inscrire",
+        "email": "E-mail",
+        "password": "Mot de passe",
+        "confirmPassword": "Confirmer le mot de passe",
+        "forgotPassword": "Mot de passe oublié ?",
+        "resetPassword": "Réinitialiser le mot de passe",
+        "noAccount": "Pas de compte ?",
+        "hasAccount": "Vous avez déjà un compte ?",
+        "signUpHere": "Inscrivez-vous ici",
+        "loginHere": "Connectez-vous ici",
+        "resetPasswordSent": "E-mail de réinitialisation envoyé !",
+        "invalidCredentials": "E-mail ou mot de passe invalide",
+        "emailAlreadyInUse": "E-mail déjà utilisé",
+        "weakPassword": "Le mot de passe doit contenir au moins 6 caractères",
+        "passwordsDoNotMatch": "Les mots de passe ne correspondent pas"
+    },
+    "todo": {
+        "addTodo": "Ajouter une nouvelle tâche...",
+        "all": "Tous",
+        "active": "Actifs",
+        "completed": "Terminés",
+        "clearCompleted": "Effacer les terminés",
+        "itemsLeft": "{{count}} élément restant",
+        "itemsLeft_plural": "{{count}} éléments restants",
+        "dragToReorder": "Glisser-déposer pour réorganiser la liste"
+    },
+    "language": {
+        "select": "Choisir la langue",
+        "english": "Anglais",
+        "ukrainian": "Ukrainien"
+    },
+    "common": {
+        "loading": "Chargement...",
+        "error": "Erreur",
+        "success": "Succès",
+        "cancel": "Annuler",
+        "save": "Enregistrer",
+        "delete": "Supprimer",
+        "edit": "Modifier"
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "Cambiar tema",
+        "menu": "Menú",
+        "logout": "Cerrar sesión"
+    },
+    "auth": {
+        "login": "Iniciar sesión",
+        "signup": "Registrarse",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "confirmPassword": "Confirmar contraseña",
+        "forgotPassword": "¿Olvidaste la contraseña?",
+        "resetPassword": "Restablecer contraseña",
+        "noAccount": "¿No tienes una cuenta?",
+        "hasAccount": "¿Ya tienes una cuenta?",
+        "signUpHere": "Regístrate aquí",
+        "loginHere": "Inicia sesión aquí",
+        "resetPasswordSent": "¡Correo de restablecimiento enviado!",
+        "invalidCredentials": "Correo o contraseña inválidos",
+        "emailAlreadyInUse": "El correo ya está en uso",
+        "weakPassword": "La contraseña debe tener al menos 6 caracteres",
+        "passwordsDoNotMatch": "Las contraseñas no coinciden"
+    },
+    "todo": {
+        "addTodo": "Agrega una nueva tarea...",
+        "all": "Todas",
+        "active": "Activas",
+        "completed": "Completadas",
+        "clearCompleted": "Borrar completadas",
+        "itemsLeft": "{{count}} elemento restante",
+        "itemsLeft_plural": "{{count}} elementos restantes",
+        "dragToReorder": "Arrastra y suelta para reordenar"
+    },
+    "language": {
+        "select": "Seleccionar idioma",
+        "english": "Inglés",
+        "ukrainian": "Ucraniano"
+    },
+    "common": {
+        "loading": "Cargando...",
+        "error": "Error",
+        "success": "Éxito",
+        "cancel": "Cancelar",
+        "save": "Guardar",
+        "delete": "Eliminar",
+        "edit": "Editar"
+    }
+}

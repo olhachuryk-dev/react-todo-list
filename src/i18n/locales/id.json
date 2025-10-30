@@ -1,0 +1,50 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "Ganti tema",
+        "menu": "Menu",
+        "logout": "Keluar"
+    },
+    "auth": {
+        "login": "Masuk",
+        "signup": "Daftar",
+        "email": "Email",
+        "password": "Kata sandi",
+        "confirmPassword": "Konfirmasi kata sandi",
+        "forgotPassword": "Lupa kata sandi?",
+        "resetPassword": "Atur ulang kata sandi",
+        "noAccount": "Belum punya akun?",
+        "hasAccount": "Sudah punya akun?",
+        "signUpHere": "Daftar di sini",
+        "loginHere": "Masuk di sini",
+        "resetPasswordSent": "Email pengaturan ulang telah dikirim!",
+        "invalidCredentials": "Email atau kata sandi tidak valid",
+        "emailAlreadyInUse": "Email sudah digunakan",
+        "weakPassword": "Kata sandi minimal 6 karakter",
+        "passwordsDoNotMatch": "Kata sandi tidak cocok"
+    },
+    "todo": {
+        "addTodo": "Tambahkan tugas baru...",
+        "all": "Semua",
+        "active": "Aktif",
+        "completed": "Selesai",
+        "clearCompleted": "Hapus yang selesai",
+        "itemsLeft": "{{count}} item tersisa",
+        "itemsLeft_plural": "{{count}} item tersisa",
+        "dragToReorder": "Seret dan lepas untuk mengurutkan ulang"
+    },
+    "language": {
+        "select": "Pilih Bahasa",
+        "english": "Inggris",
+        "ukrainian": "Ukraina"
+    },
+    "common": {
+        "loading": "Memuat...",
+        "error": "Kesalahan",
+        "success": "Berhasil",
+        "cancel": "Batal",
+        "save": "Simpan",
+        "delete": "Hapus",
+        "edit": "Edit"
+    }
+}

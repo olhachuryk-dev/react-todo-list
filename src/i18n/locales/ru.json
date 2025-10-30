@@ -1,0 +1,50 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "Переключить тему",
+        "menu": "Меню",
+        "logout": "Выйти"
+    },
+    "auth": {
+        "login": "Войти",
+        "signup": "Регистрация",
+        "email": "Электронная почта",
+        "password": "Пароль",
+        "confirmPassword": "Подтвердите пароль",
+        "forgotPassword": "Забыли пароль?",
+        "resetPassword": "Сбросить пароль",
+        "noAccount": "Нет аккаунта?",
+        "hasAccount": "Уже есть аккаунт?",
+        "signUpHere": "Зарегистрироваться здесь",
+        "loginHere": "Войти здесь",
+        "resetPasswordSent": "Письмо для сброса пароля отправлено!",
+        "invalidCredentials": "Неверная почта или пароль",
+        "emailAlreadyInUse": "Почта уже используется",
+        "weakPassword": "Пароль должен быть не менее 6 символов",
+        "passwordsDoNotMatch": "Пароли не совпадают"
+    },
+    "todo": {
+        "addTodo": "Добавить новую задачу...",
+        "all": "Все",
+        "active": "Активные",
+        "completed": "Завершенные",
+        "clearCompleted": "Очистить завершенные",
+        "itemsLeft": "Остался {{count}} элемент",
+        "itemsLeft_plural": "Осталось {{count}} элементов",
+        "dragToReorder": "Перетащите, чтобы изменить порядок"
+    },
+    "language": {
+        "select": "Выбрать язык",
+        "english": "Английский",
+        "ukrainian": "Украинский"
+    },
+    "common": {
+        "loading": "Загрузка...",
+        "error": "Ошибка",
+        "success": "Успех",
+        "cancel": "Отмена",
+        "save": "Сохранить",
+        "delete": "Удалить",
+        "edit": "Редактировать"
+    }
+}

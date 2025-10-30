@@ -1,0 +1,51 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "สลับธีม",
+        "menu": "เมนู",
+        "logout": "ออกจากระบบ"
+    },
+    "auth": {
+        "login": "เข้าสู่ระบบ",
+        "signup": "สมัครสมาชิก",
+        "email": "อีเมล",
+        "password": "รหัสผ่าน",
+        "confirmPassword": "ยืนยันรหัสผ่าน",
+        "forgotPassword": "ลืมรหัสผ่าน?",
+        "resetPassword": "รีเซ็ตรหัสผ่าน",
+        "noAccount": "ไม่มีบัญชีใช่ไหม?",
+        "hasAccount": "มีบัญชีอยู่แล้วใช่ไหม?",
+        "signUpHere": "สมัครที่นี่",
+        "loginHere": "เข้าสู่ระบบที่นี่",
+        "resetPasswordSent": "ส่งอีเมลรีเซ็ตรหัสผ่านแล้ว!",
+        "invalidCredentials": "อีเมลหรือรหัสผ่านไม่ถูกต้อง",
+        "emailAlreadyInUse": "อีเมลนี้ถูกใช้งานแล้ว",
+        "weakPassword": "รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร",
+        "passwordsDoNotMatch": "รหัสผ่านไม่ตรงกัน"
+    },
+    "todo": {
+        "addTodo": "เพิ่มงานใหม่...",
+        "all": "ทั้งหมด",
+        "active": "กำลังทำ",
+        "completed": "เสร็จสิ้น",
+        "clearCompleted": "ล้างที่เสร็จสิ้น",
+        "itemsLeft": "เหลือ {{count}} รายการ",
+        "itemsLeft_plural": "เหลือ {{count}} รายการ",
+        "dragToReorder": "ลากและวางเพื่อจัดลำดับรายการใหม่"
+    },
+    "language": {
+        "select": "เลือกภาษา",
+        "english": "อังกฤษ",
+        "ukrainian": "ยูเครน"
+    },
+    "common": {
+        "loading": "กำลังโหลด...",
+        "error": "ข้อผิดพลาด",
+        "success": "สำเร็จ",
+        "cancel": "ยกเลิก",
+        "save": "บันทึก",
+        "delete": "ลบ",
+        "edit": "แก้ไข"
+    }
+}
+

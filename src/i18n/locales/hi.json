@@ -1,0 +1,51 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "थीम बदलें",
+        "menu": "मेन्यू",
+        "logout": "लॉगआउट"
+    },
+    "auth": {
+        "login": "लॉगिन",
+        "signup": "साइन अप",
+        "email": "ईमेल",
+        "password": "पासवर्ड",
+        "confirmPassword": "पासवर्ड की पुष्टि करें",
+        "forgotPassword": "पासवर्ड भूल गए?",
+        "resetPassword": "पासवर्ड रीसेट करें",
+        "noAccount": "क्या आपका खाता नहीं है?",
+        "hasAccount": "क्या आपका पहले से खाता है?",
+        "signUpHere": "यहाँ साइन अप करें",
+        "loginHere": "यहाँ लॉगिन करें",
+        "resetPasswordSent": "पासवर्ड रीसेट ईमेल भेज दिया गया!",
+        "invalidCredentials": "अमान्य ईमेल या पासवर्ड",
+        "emailAlreadyInUse": "ईमेल पहले से इस्तेमाल में है",
+        "weakPassword": "पासवर्ड कम से कम 6 अक्षरों का होना चाहिए",
+        "passwordsDoNotMatch": "पासवर्ड मेल नहीं खाते"
+    },
+    "todo": {
+        "addTodo": "नया कार्य जोड़ें...",
+        "all": "सभी",
+        "active": "सक्रिय",
+        "completed": "पूर्ण",
+        "clearCompleted": "पूर्ण कार्य साफ़ करें",
+        "itemsLeft": "{{count}} आइटम बाकी",
+        "itemsLeft_plural": "{{count}} आइटम बाकी",
+        "dragToReorder": "सूची को पुन:क्रमित करने के लिए खींचें और छोड़ें"
+    },
+    "language": {
+        "select": "भाषा चुनें",
+        "english": "अंग्रेज़ी",
+        "ukrainian": "यूक्रेनी"
+    },
+    "common": {
+        "loading": "लोड हो रहा है...",
+        "error": "त्रुटि",
+        "success": "सफलता",
+        "cancel": "रद्द करें",
+        "save": "सहेजें",
+        "delete": "हटाएं",
+        "edit": "संपादित करें"
+    }
+}
+

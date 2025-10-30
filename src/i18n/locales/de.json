@@ -1,0 +1,50 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "Thema umschalten",
+        "menu": "Menü",
+        "logout": "Abmelden"
+    },
+    "auth": {
+        "login": "Anmelden",
+        "signup": "Registrieren",
+        "email": "E-Mail",
+        "password": "Passwort",
+        "confirmPassword": "Passwort bestätigen",
+        "forgotPassword": "Passwort vergessen?",
+        "resetPassword": "Passwort zurücksetzen",
+        "noAccount": "Noch kein Konto?",
+        "hasAccount": "Bereits ein Konto?",
+        "signUpHere": "Hier registrieren",
+        "loginHere": "Hier anmelden",
+        "resetPasswordSent": "E-Mail zum Zurücksetzen gesendet!",
+        "invalidCredentials": "Ungültige E-Mail oder Passwort",
+        "emailAlreadyInUse": "E-Mail wird bereits verwendet",
+        "weakPassword": "Passwort muss mindestens 6 Zeichen lang sein",
+        "passwordsDoNotMatch": "Passwörter stimmen nicht überein"
+    },
+    "todo": {
+        "addTodo": "Neue Aufgabe hinzufügen...",
+        "all": "Alle",
+        "active": "Aktiv",
+        "completed": "Abgeschlossen",
+        "clearCompleted": "Abgeschlossene löschen",
+        "itemsLeft": "{{count}} Eintrag übrig",
+        "itemsLeft_plural": "{{count}} Einträge übrig",
+        "dragToReorder": "Zum Neuordnen ziehen und ablegen"
+    },
+    "language": {
+        "select": "Sprache auswählen",
+        "english": "Englisch",
+        "ukrainian": "Ukrainisch"
+    },
+    "common": {
+        "loading": "Wird geladen...",
+        "error": "Fehler",
+        "success": "Erfolg",
+        "cancel": "Abbrechen",
+        "save": "Speichern",
+        "delete": "Löschen",
+        "edit": "Bearbeiten"
+    }
+}

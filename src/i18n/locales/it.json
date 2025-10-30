@@ -1,0 +1,51 @@
+{
+    "header": {
+        "title": "T O D O",
+        "themeToggle": "Cambia tema",
+        "menu": "Menu",
+        "logout": "Esci"
+    },
+    "auth": {
+        "login": "Accedi",
+        "signup": "Registrati",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Conferma password",
+        "forgotPassword": "Password dimenticata?",
+        "resetPassword": "Reimposta password",
+        "noAccount": "Non hai un account?",
+        "hasAccount": "Hai già un account?",
+        "signUpHere": "Registrati qui",
+        "loginHere": "Accedi qui",
+        "resetPasswordSent": "Email per il reset inviata!",
+        "invalidCredentials": "Email o password non validi",
+        "emailAlreadyInUse": "Email già in uso",
+        "weakPassword": "La password deve contenere almeno 6 caratteri",
+        "passwordsDoNotMatch": "Le password non coincidono"
+    },
+    "todo": {
+        "addTodo": "Aggiungi una nuova attività...",
+        "all": "Tutte",
+        "active": "Attive",
+        "completed": "Completate",
+        "clearCompleted": "Pulisci completate",
+        "itemsLeft": "{{count}} elemento rimanente",
+        "itemsLeft_plural": "{{count}} elementi rimanenti",
+        "dragToReorder": "Trascina e rilascia per riordinare"
+    },
+    "language": {
+        "select": "Seleziona lingua",
+        "english": "Inglese",
+        "ukrainian": "Ucraino"
+    },
+    "common": {
+        "loading": "Caricamento...",
+        "error": "Errore",
+        "success": "Successo",
+        "cancel": "Annulla",
+        "save": "Salva",
+        "delete": "Elimina",
+        "edit": "Modifica"
+    }
+}
+
